@@ -23,6 +23,24 @@ const Home = () => {
         </button>
 
       </section>
+      <section className="px-6 py-20 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+
+  <FeatureCard
+    title="AI Chat"
+    desc="Smart futuristic AI conversations with premium experience."
+  />
+
+  <FeatureCard
+    title="Content Studio"
+    desc="Generate captions, hooks, scripts and social media content."
+  />
+
+  <FeatureCard
+    title="Image Generator"
+    desc="Create futuristic AI images and creative prompts instantly."
+  />
+
+</section>
 
     </div>
   )
