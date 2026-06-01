@@ -39,7 +39,15 @@ const Home = () => {
     title="Image Generator"
     desc="Create futuristic AI images and creative prompts instantly."
   />
+<FeatureCard
+title="Study Studio"
+desc="Homework solver, summaries, notes and AI explanations."
+/>
 
+<FeatureCard
+title="Viral Hooks"
+desc="Generate viral hooks, captions and high-engagement ideas."
+/>
 </section>
 
     </div>
