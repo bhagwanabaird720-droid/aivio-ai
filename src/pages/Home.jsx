@@ -3,8 +3,8 @@ import Navbar from "../components/Navbar"
 
 const Home = () => {
   return (
-    <div className="min-h-screen bg-black text-white">
-
+    <div className="relative min-h-screen bg-black text-white overflow-hidden">
+  <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 via-purple-500/10 to-transparent blur-3xl"></div>
       <Navbar />
 
       <section className="flex flex-col items-center justify-center text-center px-6 py-32">
