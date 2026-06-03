@@ -19,8 +19,10 @@ const Home = () => {
           developers and businesses.
         </p>
 
-        <button className="mt-10 px-8 py-4 rounded-2xl bg-gradient-to-r from-cyan-500 to-purple-600 font-bold shadow-lg shadow-cyan-500/20 hover:scale-105 transition-all duration-300">
-          className="mt-10 px-8 py-4 rounded-2xl bg-gradient-to-r from-cyan-500 to-purple-600 font-bold shadow-[0_0_40px_rgba(34,211,238,0.4)] hover:scale-105 hover:shadow-[0_0_60px_rgba(168,85,247,0.5)] transition-all duration-500"
+        <button  
+          className="mt-10 px-8 py-4 rounded-2xl bg-gradient-to-r from-cyan-500 to-purple-600 font-bold shadow-[0_0_40px_rgba(34,211,238,0.4)] hover:scale-105 transition-all duration-500">
+  Launch Workspace
+
         </button>
 
       </section>
