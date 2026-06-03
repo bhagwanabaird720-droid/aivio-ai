@@ -1,5 +1,7 @@
-<nav className="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-6 py-4 border-b border-white/10 backdrop-blur-xl bg-black/30">
-      
+const Navbar = () => {
+  return (
+    <nav className="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-6 py-4 border-b border-white/10 backdrop-blur-xl bg-black/30">
+
       <h1 className="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-purple-500 text-transparent bg-clip-text">
         AIVIO
       </h1>
@@ -19,7 +21,7 @@
       </div>
 
     </nav>
-    )
+  )
 }
 
 export default Navbar
