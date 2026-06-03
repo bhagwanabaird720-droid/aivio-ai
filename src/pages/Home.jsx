@@ -4,8 +4,9 @@ import Navbar from "../components/Navbar"
 const Home = () => {
   return (
     <div className="relative min-h-screen bg-black text-white overflow-hidden">
-  <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 via-purple-500/10 to-transparent blur-3xl"></div>
-      <Navbar />
+  <div className="absolute top-[-200px] left-[-200px] w-[500px] h-[500px] bg-cyan-500/20 rounded-full blur-[120px]"></div>
+
+<div className="absolute bottom-[-200px] right-[-200px] w-[500px] h-[500px] bg-purple-500/20 rounded-full blur-[120px]"></div>
 
       <section className="flex flex-col items-center justify-center text-center px-6 py-32">
 
