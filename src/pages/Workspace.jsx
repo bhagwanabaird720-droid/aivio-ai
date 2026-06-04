@@ -1,6 +1,7 @@
 import Navbar from "../components/Navbar"
 const Workspace = () => {
   return (
+    <div>
    <Navbar /> 
     <div className="flex">
 
