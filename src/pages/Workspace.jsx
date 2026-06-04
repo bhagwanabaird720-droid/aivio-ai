@@ -31,8 +31,6 @@ const Workspace = () => {
       Send
     </button>
   </div>
-  </div>
-
     </div>
   )
 }
