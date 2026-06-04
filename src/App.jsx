@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 
 import Home from "./pages/Home"
-import AIChat from "./pages/AIChat"
+import Workspace from "./pages/Workspace"
 
 function App() {
   return (
@@ -11,7 +11,7 @@ function App() {
 
         <Route path="/" element={<Home />} />
 
-        <Route path="/chat" element={<AIChat />} />
+        <Route path="/chat" element={<Workspace />} />
 
       </Routes>
 
