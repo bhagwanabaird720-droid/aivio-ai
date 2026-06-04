@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useRef, useEffect } from "react"
 import Navbar from "../components/Navbar"
 
 const Workspace = () => {
@@ -6,19 +6,40 @@ const Workspace = () => {
   const [message, setMessage] = useState("")
   const [messages, setMessages] = useState([])
 
-  const sendMessage = () => {
+  const messagesEndRef = useRef(null)
+
+  useEffect(() => {
+    messagesEndRef.current?.scrollIntoView({
+      behavior: "smooth"
+    })
+  }, [messages])
+
+  const sendMessage = async () => {
 
     if (message.trim() === "") return
 
-    setMessages([
-      ...messages,
-      {
-        text: message,
-        sender: "user"
-      }
-    ])
+    const userMessage = {
+      text: message,
+      sender: "user"
+    }
+
+    setMessages((prev) => [...prev, userMessage])
+
+    const userText = message
 
     setMessage("")
+
+    setTimeout(() => {
+
+      const aiMessage = {
+        text: `AIVIO AI Response: ${userText}`,
+        sender: "ai"
+      }
+
+      setMessages((prev) => [...prev, aiMessage])
+
+    }, 800)
+
   }
 
   return (
@@ -30,7 +51,9 @@ const Workspace = () => {
         {/* Sidebar */}
         <div className="w-[260px] border-r border-white/10 bg-white/5 p-4">
 
-          <button className="w-full py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-purple-600 font-semibold">
+          <button
+            className="w-full py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-purple-600 font-semibold"
+          >
             + New Chat
           </button>
 
@@ -69,6 +92,8 @@ const Workspace = () => {
 
               )}
 
+              <div ref={messagesEndRef}></div>
+
             </div>
 
             {/* Input */}
@@ -79,6 +104,11 @@ const Workspace = () => {
                 placeholder="Message AIVIO AI..."
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") {
+                    sendMessage()
+                  }
+                }}
                 className="flex-1 bg-white/5 border border-white/10 rounded-2xl px-5 py-4 outline-none text-white"
               />
 
