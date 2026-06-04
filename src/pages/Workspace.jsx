@@ -5,7 +5,7 @@ const Workspace = () => {
     <>
       <Navbar />
 
-      <div className="flex">
+      <div className="flex gap-4 sticky bottom-0 bg-black/40 backdrop-blur-xl p-2 rounded-3xl">
 
         {/* Sidebar */}
         <div className="w-[260px] h-screen bg-white/5 border-r border-white/10 p-4">
@@ -21,7 +21,7 @@ const Workspace = () => {
 
           <div className="w-full max-w-3xl px-6">
 
-            <div className="h-[500px] bg-white/5 border border-white/10 rounded-3xl mb-6 p-6 overflow-y-auto">
+            <div className="h-[500px] bg-white/5 border border-white/10 rounded-3xl mb-6 p-6 overflow-y-auto flex flex-col gap-4">
 
             <div className="flex flex-col gap-4">
 
