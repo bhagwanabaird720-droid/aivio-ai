@@ -41,10 +41,8 @@ const Workspace = () => {
 
           </div>
 
-        </div>
 
-      </div>
-
+    </div>
     </div>
   )
 }
