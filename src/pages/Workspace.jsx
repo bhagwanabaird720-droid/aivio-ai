@@ -23,9 +23,17 @@ const Workspace = () => {
 
             <div className="h-[500px] bg-white/5 border border-white/10 rounded-3xl mb-6 p-6 overflow-y-auto">
 
-              <p className="text-gray-400">
-                Welcome to AIVIO AI 🚀
-              </p>
+            <div className="flex flex-col gap-4">
+
+  <div className="self-start bg-white/10 px-5 py-3 rounded-2xl max-w-[80%]">
+    Hello 👋
+  </div>
+
+  <div className="self-end bg-gradient-to-r from-cyan-500 to-purple-600 px-5 py-3 rounded-2xl max-w-[80%]">
+    Hi AIVIO 🚀
+  </div>
+
+</div>
 
             </div>
 
