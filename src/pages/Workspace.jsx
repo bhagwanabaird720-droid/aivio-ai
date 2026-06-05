@@ -6,6 +6,7 @@ const Workspace = () => {
   const [messages, setMessages] = useState([])
   const [chats, setChats] = useState([])
   const [showMenu, setShowMenu] = useState(false)
+  const [activeChatId, setActiveChatId] = useState(null)
 
   const messagesEndRef = useRef(null)
 
@@ -17,11 +18,13 @@ const Workspace = () => {
 
   const handleNewChat = () => {
     setMessages([])
+    setActiveChatId(null)
     setShowMenu(false)
   }
 
   const openChat = (chat) => {
     setMessages(chat.messages)
+    setActiveChatId(chat.id)
     setShowMenu(false)
   }
 
@@ -37,32 +40,26 @@ const Workspace = () => {
 
     setMessages(updatedMessages)
 
-    if (messages.length === 0) {
-
-  const newChat = {
-    id: Date.now(),
-    title: message,
-    messages: updatedMessages,
-  }
-
-  setChats((prev) => [newChat, ...prev])
-
-} else {
-
-  setChats((prev) =>
-    prev.map((chat) =>
-      chat.title === chats[0]?.title
-        ? {
-            ...chat,
-            messages: updatedMessages,
-          }
-        : chat
-    )
-  )
-
-    }
+    if (activeChatId === null) {
+      const newChat = {
+        id: Date.now(),
+        title: message,
+        messages: updatedMessages,
+      }
 
       setChats((prev) => [newChat, ...prev])
+      setActiveChatId(newChat.id)
+    } else {
+      setChats((prev) =>
+        prev.map((chat) =>
+          chat.id === activeChatId
+            ? {
+                ...chat,
+                messages: updatedMessages,
+              }
+            : chat
+        )
+      )
     }
 
     setMessage("")
@@ -73,7 +70,20 @@ const Workspace = () => {
         sender: "ai",
       }
 
-      setMessages((prev) => [...prev, aiMessage])
+      const finalMessages = [...updatedMessages, aiMessage]
+
+      setMessages(finalMessages)
+
+      setChats((prev) =>
+        prev.map((chat) =>
+          chat.id === activeChatId
+            ? {
+                ...chat,
+                messages: finalMessages,
+              }
+            : chat
+        )
+      )
     }, 800)
   }
 
@@ -94,7 +104,6 @@ const Workspace = () => {
           </button>
 
           <div className="mt-6 space-y-2">
-
             {chats.map((chat) => (
               <div
                 key={chat.id}
@@ -104,15 +113,14 @@ const Workspace = () => {
                 {chat.title}
               </div>
             ))}
-
           </div>
 
         </div>
 
-        {/* Main */}
+        {/* Main Area */}
         <div className="flex-1 p-3 md:p-6">
 
-          {/* Mobile Menu */}
+          {/* Mobile Menu Button */}
           <button
             onClick={() => setShowMenu(!showMenu)}
             className="md:hidden mb-3 px-4 py-2 rounded-xl bg-white/10"
@@ -120,6 +128,7 @@ const Workspace = () => {
             ☰ Chats
           </button>
 
+          {/* Mobile Chat List */}
           {showMenu && (
             <div className="md:hidden mb-4 p-3 rounded-2xl bg-white/5 border border-white/10">
 
@@ -134,12 +143,11 @@ const Workspace = () => {
                 <div
                   key={chat.id}
                   onClick={() => openChat(chat)}
-                  className="p-3 mb-2 rounded-xl bg-white/5 border border-white/10 text-sm"
+                  className="p-3 mb-2 rounded-xl bg-white/5 border border-white/10 text-sm cursor-pointer"
                 >
                   {chat.title}
                 </div>
               ))}
-
             </div>
           )}
 
@@ -165,7 +173,7 @@ const Workspace = () => {
               ))
             )}
 
-            <div ref={messagesEndRef}></div>
+            <div ref={messagesEndRef} />
 
           </div>
 
