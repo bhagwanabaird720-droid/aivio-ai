@@ -4,7 +4,8 @@ import Navbar from "../components/Navbar"
 const Workspace = () => {
   const [message, setMessage] = useState("")
   const [messages, setMessages] = useState([])
-  const [chatHistory, setChatHistory] = useState([])
+  const [chats, setChats] = useState([])
+  const [showMenu, setShowMenu] = useState(false)
 
   const messagesEndRef = useRef(null)
 
@@ -16,24 +17,35 @@ const Workspace = () => {
 
   const handleNewChat = () => {
     setMessages([])
+    setShowMenu(false)
+  }
+
+  const openChat = (chat) => {
+    setMessages(chat.messages)
+    setShowMenu(false)
   }
 
   const sendMessage = () => {
-    if (message.trim() === "") return
-
-    const userText = message
+    if (!message.trim()) return
 
     const userMessage = {
-      text: userText,
+      text: message,
       sender: "user",
     }
 
-    // Sidebar history me sirf first message save hoga
-    if (messages.length === 0) {
-      setChatHistory((prev) => [userText, ...prev])
-    }
+    const updatedMessages = [...messages, userMessage]
 
-    setMessages((prev) => [...prev, userMessage])
+    setMessages(updatedMessages)
+
+    if (messages.length === 0) {
+      const newChat = {
+        id: Date.now(),
+        title: message,
+        messages: updatedMessages,
+      }
+
+      setChats((prev) => [newChat, ...prev])
+    }
 
     setMessage("")
 
@@ -54,7 +66,7 @@ const Workspace = () => {
       <div className="flex min-h-screen bg-black text-white pt-20">
 
         {/* Desktop Sidebar */}
-        <div className="hidden md:block w-[220px] border-r border-white/10 bg-white/5 p-4">
+        <div className="hidden md:block w-[250px] border-r border-white/10 bg-white/5 p-4">
 
           <button
             onClick={handleNewChat}
@@ -64,30 +76,56 @@ const Workspace = () => {
           </button>
 
           <div className="mt-6 space-y-2">
-            {chatHistory.map((chat, index) => (
+
+            {chats.map((chat) => (
               <div
-                key={index}
-                className="p-3 rounded-xl bg-white/5 border border-white/10 text-sm truncate cursor-pointer"
+                key={chat.id}
+                onClick={() => openChat(chat)}
+                className="p-3 rounded-xl bg-white/5 border border-white/10 text-sm truncate cursor-pointer hover:bg-white/10"
               >
-                {chat}
+                {chat.title}
               </div>
             ))}
+
           </div>
 
         </div>
 
-        {/* Chat Area */}
+        {/* Main */}
         <div className="flex-1 p-3 md:p-6">
 
-          {/* Mobile New Chat */}
+          {/* Mobile Menu */}
           <button
-            onClick={handleNewChat}
-            className="md:hidden w-full mb-4 py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-purple-600 font-semibold"
+            onClick={() => setShowMenu(!showMenu)}
+            className="md:hidden mb-3 px-4 py-2 rounded-xl bg-white/10"
           >
-            + New Chat
+            ☰ Chats
           </button>
 
-          {/* Messages Box */}
+          {showMenu && (
+            <div className="md:hidden mb-4 p-3 rounded-2xl bg-white/5 border border-white/10">
+
+              <button
+                onClick={handleNewChat}
+                className="w-full mb-3 py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-purple-600"
+              >
+                + New Chat
+              </button>
+
+              {chats.map((chat) => (
+                <div
+                  key={chat.id}
+                  onClick={() => openChat(chat)}
+                  className="p-3 mb-2 rounded-xl bg-white/5 border border-white/10 text-sm"
+                >
+                  {chat.title}
+                </div>
+              ))}
+
+            </div>
+          )}
+
+          {/* Messages */}
           <div className="h-[70vh] bg-white/5 border border-white/10 rounded-3xl p-6 overflow-y-auto flex flex-col gap-4">
 
             {messages.length === 0 ? (
@@ -113,7 +151,7 @@ const Workspace = () => {
 
           </div>
 
-          {/* Input Area */}
+          {/* Input */}
           <div className="mt-4 flex gap-2 bg-black/40 backdrop-blur-xl p-2 rounded-3xl">
 
             <input
