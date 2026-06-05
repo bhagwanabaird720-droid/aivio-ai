@@ -76,7 +76,7 @@ const Workspace = () => {
         </div>
 
         {/* Chat Area */}
-        <div className="flex-1 p-3 md:p-6">
+        <div className="flex-1 p-3 md:p-6 mt-4">
 
           <div className="w-full">
 
