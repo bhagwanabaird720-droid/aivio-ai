@@ -20,13 +20,6 @@ return (
       developers and businesses.
     </p>
 
-    <Link
-      to="/chat"
-      className="mt-10 px-8 py-4 rounded-2xl bg-gradient-to-r from-cyan-500 to-purple-600 font-bold shadow-[0_0_40px_rgba(34,211,238,0.4)] hover:scale-105 transition-all duration-500"
-    >
-      Launch Workspace
-    </Link>
-
   </section>
 
   <section className="px-6 py-20 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
