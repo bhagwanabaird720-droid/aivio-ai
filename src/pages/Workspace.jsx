@@ -1,11 +1,11 @@
-const [chatHistory, setChatHistory] = useState([])
+
 import { useState, useRef, useEffect } from "react"
 import Navbar from "../components/Navbar"
 
 const Workspace = () => {
   const [message, setMessage] = useState("")
   const [messages, setMessages] = useState([])
-
+  const [chatHistory, setChatHistory] = useState([])
   const messagesEndRef = useRef(null)
 
   useEffect(() => {
