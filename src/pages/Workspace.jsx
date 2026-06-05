@@ -55,12 +55,8 @@ const Workspace = () => {
             className="w-full py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-purple-600 font-semibold"
           >
             + New Chat
-          </button>
-
-          
+          </button> 
           </div>
-
-        </div>
 
         {/* Chat Area */}
         <div className="flex-1 flex items-center justify-center p-6">
