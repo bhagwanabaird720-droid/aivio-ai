@@ -33,7 +33,7 @@ const Workspace = () => {
 
     setTimeout(() => {
       const aiMessage = {
-        text: `AIVIO AI Response: ${userText}`,
+        text: "AI connected successfully 🚀",
         sender: "ai"
       }
 
