@@ -1,4 +1,3 @@
-
 import { useState, useRef, useEffect } from "react"
 import Navbar from "../components/Navbar"
 
@@ -6,6 +5,7 @@ const Workspace = () => {
   const [message, setMessage] = useState("")
   const [messages, setMessages] = useState([])
   const [chatHistory, setChatHistory] = useState([])
+
   const messagesEndRef = useRef(null)
 
   useEffect(() => {
@@ -25,13 +25,12 @@ const Workspace = () => {
       text: message,
       sender: "user"
     }
-   if (!chatHistory.includes(message)) {
-  setChatHistory((prev) => [message, ...prev])
-   }
-    
-    setMessages((prev) => [...prev, userMessage])
 
-    const userText = message
+    if (!chatHistory.includes(message)) {
+      setChatHistory((prev) => [message, ...prev])
+    }
+
+    setMessages((prev) => [...prev, userMessage])
 
     setMessage("")
 
@@ -49,41 +48,40 @@ const Workspace = () => {
     <>
       <Navbar />
 
-      <div className="flex min-h-screen bg-black text-white">
+      <div className="flex flex-col md:flex-row min-h-screen bg-black text-white">
 
         {/* Sidebar */}
-<div className="w-[260px] border-r border-white/10 bg-white/5 p-4">
+        <div className="hidden md:block w-[260px] border-r border-white/10 bg-white/5 p-4">
 
-  <button
-    onClick={handleNewChat}
-    className="w-full py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-purple-600 font-semibold"
-  >
-    + New Chat
-  </button>
+          <button
+            onClick={handleNewChat}
+            className="w-full py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-purple-600 font-semibold"
+          >
+            + New Chat
+          </button>
 
-  <div className="mt-6 space-y-2">
+          <div className="mt-6 space-y-2">
 
-    {chatHistory.map((chat, index) => (
+            {chatHistory.map((chat, index) => (
+              <div
+                key={index}
+                className="p-3 rounded-xl bg-white/5 border border-white/10 text-sm truncate"
+              >
+                {chat}
+              </div>
+            ))}
 
-      <div
-        key={index}
-        className="p-3 rounded-xl bg-white/5 border border-white/10 text-sm truncate"
-      >
-        {chat}
-      </div>
+          </div>
 
-    ))}
-
-  </div>
-
-</div>
+        </div>
 
         {/* Chat Area */}
-        <div className="flex-1 flex items-center justify-center p-6">
+        <div className="flex-1 p-3 md:p-6">
 
-          <div className="w-full max-w-3xl">
+          <div className="w-full">
 
-            <div className="h-[500px] bg-white/5 border border-white/10 rounded-3xl mb-6 p-6 overflow-y-auto flex flex-col gap-4">
+            {/* Messages */}
+            <div className="h-[75vh] md:h-[500px] bg-white/5 border border-white/10 rounded-3xl mb-6 p-6 overflow-y-auto flex flex-col gap-4">
 
               {messages.length === 0 ? (
                 <p className="text-gray-400">
@@ -108,7 +106,8 @@ const Workspace = () => {
 
             </div>
 
-            <div className="flex gap-4 sticky bottom-0 bg-black/40 backdrop-blur-xl p-2 rounded-3xl">
+            {/* Input */}
+            <div className="flex w-full gap-2 sticky bottom-0 bg-black/40 backdrop-blur-xl p-2 rounded-3xl">
 
               <input
                 type="text"
@@ -120,7 +119,7 @@ const Workspace = () => {
                     sendMessage()
                   }
                 }}
-                className="flex-1 bg-white/5 border border-white/10 rounded-2xl px-5 py-4 outline-none text-white"
+                className="flex-1 w-full bg-white/5 border border-white/10 rounded-2xl px-4 py-3 outline-none text-white"
               />
 
               <button
