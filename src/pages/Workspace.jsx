@@ -50,30 +50,30 @@ const Workspace = () => {
 
       <div className="flex flex-col md:flex-row min-h-screen bg-black text-white">
 
+        
         {/* Sidebar */}
-        <div className="hidden md:block w-[260px] border-r border-white/10 bg-white/5 p-4">
+<div className="w-[220px] border-r border-white/10 bg-white/5 p-4 pt-20">
 
-          <button
-            onClick={handleNewChat}
-            className="w-full py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-purple-600 font-semibold"
-          >
-            + New Chat
-          </button>
+  <button
+    onClick={handleNewChat}
+    className="w-full py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-purple-600 font-semibold"
+  >
+    + New Chat
+  </button>
 
-          <div className="mt-6 space-y-2">
+  <div className="mt-6 space-y-2">
+    {chatHistory.map((chat, index) => (
+      <div
+        key={index}
+        className="p-3 rounded-xl bg-white/5 border border-white/10 text-sm truncate"
+      >
+        {chat}
+      </div>
+    ))}
+  </div>
 
-            {chatHistory.map((chat, index) => (
-              <div
-                key={index}
-                className="p-3 rounded-xl bg-white/5 border border-white/10 text-sm truncate"
-              >
-                {chat}
-              </div>
-            ))}
+</div>
 
-          </div>
-
-        </div>
 
         {/* Chat Area */}
         <div className="flex-1 p-3 md:p-6 mt-4">
