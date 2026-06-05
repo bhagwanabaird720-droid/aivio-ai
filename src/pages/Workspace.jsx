@@ -57,26 +57,7 @@ const Workspace = () => {
             + New Chat
           </button>
 
-          <div className="mt-6">
-            <p className="text-sm text-gray-400 mb-3">
-              Recent Chats
-            </p>
-
-            <div className="space-y-2">
-
-              <div className="p-3 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 cursor-pointer">
-                Chat 1
-              </div>
-
-              <div className="p-3 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 cursor-pointer">
-                Chat 2
-              </div>
-
-              <div className="p-3 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 cursor-pointer">
-                Chat 3
-              </div>
-
-            </div>
+          
           </div>
 
         </div>
