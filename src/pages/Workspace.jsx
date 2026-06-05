@@ -19,32 +19,31 @@ const Workspace = () => {
   }
 
   const sendMessage = () => {
-    if (!message.trim()) return
+    if (message.trim() === "") return
 
     const userText = message
 
+    const userMessage = {
+      text: userText,
+      sender: "user",
+    }
+
+    // Sidebar history me sirf first message save hoga
     if (messages.length === 0) {
       setChatHistory((prev) => [userText, ...prev])
     }
 
-    setMessages((prev) => [
-      ...prev,
-      {
-        text: userText,
-        sender: "user",
-      },
-    ])
+    setMessages((prev) => [...prev, userMessage])
 
     setMessage("")
 
     setTimeout(() => {
-      setMessages((prev) => [
-        ...prev,
-        {
-          text: "AI connected successfully 🚀",
-          sender: "ai",
-        },
-      ])
+      const aiMessage = {
+        text: "AI connected successfully 🚀",
+        sender: "ai",
+      }
+
+      setMessages((prev) => [...prev, aiMessage])
     }, 800)
   }
 
@@ -54,7 +53,7 @@ const Workspace = () => {
 
       <div className="flex min-h-screen bg-black text-white pt-20">
 
-        {/* Sidebar Desktop */}
+        {/* Desktop Sidebar */}
         <div className="hidden md:block w-[220px] border-r border-white/10 bg-white/5 p-4">
 
           <button
@@ -77,7 +76,7 @@ const Workspace = () => {
 
         </div>
 
-        {/* Main */}
+        {/* Chat Area */}
         <div className="flex-1 p-3 md:p-6">
 
           {/* Mobile New Chat */}
@@ -88,7 +87,7 @@ const Workspace = () => {
             + New Chat
           </button>
 
-          {/* Messages */}
+          {/* Messages Box */}
           <div className="h-[70vh] bg-white/5 border border-white/10 rounded-3xl p-6 overflow-y-auto flex flex-col gap-4">
 
             {messages.length === 0 ? (
@@ -110,11 +109,11 @@ const Workspace = () => {
               ))
             )}
 
-            <div ref={messagesEndRef} />
+            <div ref={messagesEndRef}></div>
 
           </div>
 
-          {/* Input */}
+          {/* Input Area */}
           <div className="mt-4 flex gap-2 bg-black/40 backdrop-blur-xl p-2 rounded-3xl">
 
             <input
@@ -123,7 +122,9 @@ const Workspace = () => {
               value={message}
               onChange={(e) => setMessage(e.target.value)}
               onKeyDown={(e) => {
-                if (e.key === "Enter") sendMessage()
+                if (e.key === "Enter") {
+                  sendMessage()
+                }
               }}
               className="flex-1 bg-white/5 border border-white/10 rounded-2xl px-4 py-3 outline-none text-white"
             />
