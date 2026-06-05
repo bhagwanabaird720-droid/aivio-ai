@@ -53,7 +53,7 @@ const Workspace = () => {
       <div className="flex min-h-screen bg-black text-white pt-20">
 
         {/* Sidebar Desktop */}
-        <div className="hidden md:block w-[250px] border-r border-white/10 bg-white/5 p-4">
+        <div className="hidden md:block w-[220px] border-r border-white/10 bg-white/5 p-4 pt-20">
 
           <button
             onClick={handleNewChat}
@@ -80,6 +80,16 @@ const Workspace = () => {
         </div>
 
         {/* Chat Area */}
+      <div className="flex-1 p-3 md:p-6 mt-4">
+
+  <button
+    onClick={handleNewChat}
+    className="md:hidden w-full mb-4 py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-purple-600 font-semibold"
+  >
+    + New Chat
+  </button>
+
+  <div className="w-full">
         <div className="flex-1 flex flex-col p-3 md:p-6">
 
           <div className="flex-1 bg-white/5 border border-white/10 rounded-3xl p-6 overflow-y-auto flex flex-col gap-4">
