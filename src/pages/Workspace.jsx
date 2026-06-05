@@ -38,11 +38,29 @@ const Workspace = () => {
     setMessages(updatedMessages)
 
     if (messages.length === 0) {
-      const newChat = {
-        id: Date.now(),
-        title: message,
-        messages: updatedMessages,
-      }
+
+  const newChat = {
+    id: Date.now(),
+    title: message,
+    messages: updatedMessages,
+  }
+
+  setChats((prev) => [newChat, ...prev])
+
+} else {
+
+  setChats((prev) =>
+    prev.map((chat) =>
+      chat.title === chats[0]?.title
+        ? {
+            ...chat,
+            messages: updatedMessages,
+          }
+        : chat
+    )
+  )
+
+    }
 
       setChats((prev) => [newChat, ...prev])
     }
