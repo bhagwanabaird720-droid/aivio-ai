@@ -2,7 +2,6 @@ import { useState, useRef, useEffect } from "react"
 import Navbar from "../components/Navbar"
 
 const Workspace = () => {
-
   const [message, setMessage] = useState("")
   const [messages, setMessages] = useState([])
 
@@ -14,8 +13,11 @@ const Workspace = () => {
     })
   }, [messages])
 
-  const sendMessage = async () => {
+  const handleNewChat = () => {
+    setMessages([])
+  }
 
+  const sendMessage = () => {
     if (message.trim() === "") return
 
     const userMessage = {
@@ -30,16 +32,13 @@ const Workspace = () => {
     setMessage("")
 
     setTimeout(() => {
-
       const aiMessage = {
         text: `AIVIO AI Response: ${userText}`,
         sender: "ai"
       }
 
       setMessages((prev) => [...prev, aiMessage])
-
     }, 800)
-
   }
 
   return (
@@ -52,10 +51,33 @@ const Workspace = () => {
         <div className="w-[260px] border-r border-white/10 bg-white/5 p-4">
 
           <button
+            onClick={handleNewChat}
             className="w-full py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-purple-600 font-semibold"
           >
             + New Chat
           </button>
+
+          <div className="mt-6">
+            <p className="text-sm text-gray-400 mb-3">
+              Recent Chats
+            </p>
+
+            <div className="space-y-2">
+
+              <div className="p-3 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 cursor-pointer">
+                Chat 1
+              </div>
+
+              <div className="p-3 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 cursor-pointer">
+                Chat 2
+              </div>
+
+              <div className="p-3 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 cursor-pointer">
+                Chat 3
+              </div>
+
+            </div>
+          </div>
 
         </div>
 
@@ -64,39 +86,31 @@ const Workspace = () => {
 
           <div className="w-full max-w-3xl">
 
-            {/* Messages */}
             <div className="h-[500px] bg-white/5 border border-white/10 rounded-3xl mb-6 p-6 overflow-y-auto flex flex-col gap-4">
 
               {messages.length === 0 ? (
-
                 <p className="text-gray-400">
                   Welcome to AIVIO AI 🚀
                 </p>
-
               ) : (
-
                 messages.map((msg, index) => (
-
                   <div
                     key={index}
                     className={`px-5 py-3 rounded-2xl max-w-[80%] ${
                       msg.sender === "user"
                         ? "self-end bg-gradient-to-r from-cyan-500 to-purple-600"
-                        : "self-start bg-white/10"
+                        : "self-start bg-white/10 border border-white/10"
                     }`}
                   >
                     {msg.text}
                   </div>
-
                 ))
-
               )}
 
               <div ref={messagesEndRef}></div>
 
             </div>
 
-            {/* Input */}
             <div className="flex gap-4 sticky bottom-0 bg-black/40 backdrop-blur-xl p-2 rounded-3xl">
 
               <input
