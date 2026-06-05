@@ -10,7 +10,7 @@ const Workspace = () => {
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({
-      behavior: "smooth"
+      behavior: "smooth",
     })
   }, [messages])
 
@@ -19,30 +19,32 @@ const Workspace = () => {
   }
 
   const sendMessage = () => {
-    if (message.trim() === "") return
+    if (!message.trim()) return
 
     const userText = message
-
-    const userMessage = {
-      text: userText,
-      sender: "user"
-    }
 
     if (messages.length === 0) {
       setChatHistory((prev) => [userText, ...prev])
     }
 
-    setMessages((prev) => [...prev, userMessage])
+    setMessages((prev) => [
+      ...prev,
+      {
+        text: userText,
+        sender: "user",
+      },
+    ])
 
     setMessage("")
 
     setTimeout(() => {
-      const aiMessage = {
-        text: "AI connected successfully 🚀",
-        sender: "ai"
-      }
-
-      setMessages((prev) => [...prev, aiMessage])
+      setMessages((prev) => [
+        ...prev,
+        {
+          text: "AI connected successfully 🚀",
+          sender: "ai",
+        },
+      ])
     }, 800)
   }
 
@@ -53,7 +55,7 @@ const Workspace = () => {
       <div className="flex min-h-screen bg-black text-white pt-20">
 
         {/* Sidebar Desktop */}
-        <div className="hidden md:block w-[220px] border-r border-white/10 bg-white/5 p-4 pt-20">
+        <div className="hidden md:block w-[220px] border-r border-white/10 bg-white/5 p-4">
 
           <button
             onClick={handleNewChat}
@@ -63,47 +65,38 @@ const Workspace = () => {
           </button>
 
           <div className="mt-6 space-y-2">
-
             {chatHistory.map((chat, index) => (
-
               <div
                 key={index}
                 className="p-3 rounded-xl bg-white/5 border border-white/10 text-sm truncate cursor-pointer"
               >
                 {chat}
               </div>
-
             ))}
-
           </div>
 
         </div>
 
-        {/* Chat Area */}
-      <div className="flex-1 p-3 md:p-6 mt-4">
+        {/* Main */}
+        <div className="flex-1 p-3 md:p-6">
 
-  <button
-    onClick={handleNewChat}
-    className="md:hidden w-full mb-4 py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-purple-600 font-semibold"
-  >
-    + New Chat
-  </button>
+          {/* Mobile New Chat */}
+          <button
+            onClick={handleNewChat}
+            className="md:hidden w-full mb-4 py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-purple-600 font-semibold"
+          >
+            + New Chat
+          </button>
 
-  <div className="w-full">
-        <div className="flex-1 flex flex-col p-3 md:p-6">
-
-          <div className="flex-1 bg-white/5 border border-white/10 rounded-3xl p-6 overflow-y-auto flex flex-col gap-4">
+          {/* Messages */}
+          <div className="h-[70vh] bg-white/5 border border-white/10 rounded-3xl p-6 overflow-y-auto flex flex-col gap-4">
 
             {messages.length === 0 ? (
-
               <p className="text-gray-400">
                 Welcome to AIVIO AI 🚀
               </p>
-
             ) : (
-
               messages.map((msg, index) => (
-
                 <div
                   key={index}
                   className={`px-5 py-3 rounded-2xl max-w-[80%] ${
@@ -114,12 +107,10 @@ const Workspace = () => {
                 >
                   {msg.text}
                 </div>
-
               ))
-
             )}
 
-            <div ref={messagesEndRef}></div>
+            <div ref={messagesEndRef} />
 
           </div>
 
@@ -132,9 +123,7 @@ const Workspace = () => {
               value={message}
               onChange={(e) => setMessage(e.target.value)}
               onKeyDown={(e) => {
-                if (e.key === "Enter") {
-                  sendMessage()
-                }
+                if (e.key === "Enter") sendMessage()
               }}
               className="flex-1 bg-white/5 border border-white/10 rounded-2xl px-4 py-3 outline-none text-white"
             />
