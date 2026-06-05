@@ -1,3 +1,4 @@
+const [chatHistory, setChatHistory] = useState([])
 import { useState, useRef, useEffect } from "react"
 import Navbar from "../components/Navbar"
 
@@ -24,7 +25,10 @@ const Workspace = () => {
       text: message,
       sender: "user"
     }
-
+   if (!chatHistory.includes(message)) {
+  setChatHistory((prev) => [message, ...prev])
+   }
+    
     setMessages((prev) => [...prev, userMessage])
 
     const userText = message
@@ -48,15 +52,31 @@ const Workspace = () => {
       <div className="flex min-h-screen bg-black text-white">
 
         {/* Sidebar */}
-        <div className="w-[260px] border-r border-white/10 bg-white/5 p-4">
+<div className="w-[260px] border-r border-white/10 bg-white/5 p-4">
 
-          <button
-            onClick={handleNewChat}
-            className="w-full py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-purple-600 font-semibold"
-          >
-            + New Chat
-          </button> 
-          </div>
+  <button
+    onClick={handleNewChat}
+    className="w-full py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-purple-600 font-semibold"
+  >
+    + New Chat
+  </button>
+
+  <div className="mt-6 space-y-2">
+
+    {chatHistory.map((chat, index) => (
+
+      <div
+        key={index}
+        className="p-3 rounded-xl bg-white/5 border border-white/10 text-sm truncate"
+      >
+        {chat}
+      </div>
+
+    ))}
+
+  </div>
+
+</div>
 
         {/* Chat Area */}
         <div className="flex-1 flex items-center justify-center p-6">
