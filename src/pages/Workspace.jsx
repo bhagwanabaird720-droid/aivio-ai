@@ -98,14 +98,14 @@ const Workspace = () => {
 
           <button
             onClick={handleNewChat}
-            className="w-full py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-purple-600 font-semibold"
+            className="w-full py-2 text-sm rounded-xl bg-gradient-to-r from-cyan-500 to-purple-600"
           >
             + New Chat
           </button>
           <input
   type="text"
   placeholder="Search Chats"
-  className="w-full mt-3 p-3 rounded-xl bg-[#111111] border border-white/10 text-white outline-none"
+  className="w-full mt-3 p-4 rounded-xl bg-[#111111] border border-white/10 text-white outline-none"
 />
 
      <div className="flex-1 mt-6 space-y-2 overflow-y-auto">
