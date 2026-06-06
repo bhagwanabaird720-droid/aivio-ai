@@ -2,19 +2,43 @@ import { useState, useRef, useEffect } from "react"
 import Navbar from "../components/Navbar"
 
 const Workspace = () => {
-  const [message, setMessage] = useState("")
-  const [messages, setMessages] = useState([])
-  const [chats, setChats] = useState([])
-  const [showMenu, setShowMenu] = useState(false)
-  const [activeChatId, setActiveChatId] = useState(null)
+const [message, setMessage] = useState("")
+const [messages, setMessages] = useState([])
 
-  const messagesEndRef = useRef(null)
+const [chats, setChats] = useState(() => {
+  const savedChats = localStorage.getItem("aivio-chats")
+  return savedChats ? JSON.parse(savedChats) : []
+})
 
-  useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({
-      behavior: "smooth",
-    })
-  }, [messages])
+const [showMenu, setShowMenu] = useState(false)
+
+const [activeChatId, setActiveChatId] = useState(() => {
+  const savedId = localStorage.getItem("aivio-active-chat")
+  return savedId ? JSON.parse(savedId) : null
+})
+
+const messagesEndRef = useRef(null)
+
+useEffect(() => {
+  messagesEndRef.current?.scrollIntoView({
+    behavior: "smooth",
+  })
+}, [messages])
+
+useEffect(() => {
+  localStorage.setItem(
+    "aivio-chats",
+    JSON.stringify(chats)
+  )
+}, [chats])
+
+useEffect(() => {
+  localStorage.setItem(
+    "aivio-active-chat",
+    JSON.stringify(activeChatId)
+  )
+}, [activeChatId])
+  
 
   const handleNewChat = () => {
     setMessages([])
