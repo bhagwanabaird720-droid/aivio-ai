@@ -120,18 +120,18 @@ useEffect(() => {
         {/* Desktop Sidebar */}
         <div className="hidden md:flex flex-col w-[250px] border-r border-white/10 bg-[#0A0A0A] p-4">
 
-          <button
-            onClick={handleNewChat}
-            className="w-full py-2 text-sm rounded-xl bg-gradient-to-r from-cyan-500 to-purple-600"
-          >
-            + New Chat
-          </button>
-          <input
+        <button
+  onClick={handleNewChat}
+  className="w-full mb-3 py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-purple-600"
+>
+  + New Chat
+</button>
+
+<input
   type="text"
   placeholder="Search Chats"
-  className="w-full mt-3 p-4 rounded-xl bg-[#111111] border border-white/10 text-white outline-none"
+  className="w-full mb-3 p-3 rounded-xl bg-[#111111] border border-white/10 text-white outline-none"
 />
-
      <div className="flex-1 mt-6 space-y-2 overflow-y-auto">
             {chats.map((chat) => (
               <div
@@ -226,8 +226,23 @@ useEffect(() => {
             ) : (
               messages.map((msg, index) => (
                 <div
-                  key={index}
-                  className={`px-5 py-3 rounded-2xl max-w-[80%] ${
+  key={index}
+  className={`px-5 py-3 rounded-2xl
+  max-w-[85%]
+  break-words
+  whitespace-pre-wrap
+  overflow-hidden
+  ${
+    msg.sender === "user"
+      ? "self-end bg-gradient-to-r from-cyan-500 to-purple-600 text-white"
+      : "self-start bg-[#111111] border border-white/10 text-white"
+  }`}
+>
+ <pre className="whitespace-pre-wrap break-words font-mono text-sm">
+  {msg.text}
+</pre> 
+</div>
+                
                     msg.sender === "user"
                       ? "self-end bg-gradient-to-r from-cyan-500 to-purple-600"
                       : "self-start bg-[#111111] border border-white/10 text-white"
@@ -245,8 +260,19 @@ useEffect(() => {
           {/* Input */}
           <div className="mt-4 flex gap-2 bg-black/40 backdrop-blur-xl p-2 rounded-3xl">
 
-            <input
-              type="text"
+            <textarea
+  placeholder="Message AIVIO AI..."
+  value={message}
+  onChange={(e) => setMessage(e.target.value)}
+  rows={1}
+  className="flex-1 bg-white/5 border border-white/10 rounded-2xl px-4 py-3 outline-none text-white resize-none"
+  onKeyDown={(e) => {
+    if (e.key === "Enter" && !e.shiftKey) {
+      e.preventDefault()
+      sendMessage()
+    }
+  }}
+/>
               placeholder="Message AIVIO AI..."
               value={message}
               onChange={(e) => setMessage(e.target.value)}
