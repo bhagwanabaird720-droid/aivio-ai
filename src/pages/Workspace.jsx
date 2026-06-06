@@ -243,14 +243,7 @@ useEffect(() => {
 </pre> 
 </div>
                 
-                    msg.sender === "user"
-                      ? "self-end bg-gradient-to-r from-cyan-500 to-purple-600"
-                      : "self-start bg-[#111111] border border-white/10 text-white"
-                  }`}
-                >
-                  {msg.text}
-                </div>
-              ))
+                    
             )}
 
             <div ref={messagesEndRef} />
@@ -289,14 +282,7 @@ useEffect(() => {
               className="px-6 rounded-2xl bg-gradient-to-r from-cyan-500 to-purple-600 font-semibold"
             >
               Send
-            </button>
-
-          </div>
-
-        </div>
-
-      </div>
-    </>
+            
   )
 }
 
