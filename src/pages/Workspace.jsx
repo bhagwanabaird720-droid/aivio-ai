@@ -91,10 +91,10 @@ const Workspace = () => {
     <>
       <Navbar />
 
-      <div className="flex min-h-screen bg-black text-white pt-20">
+      <div className="flex h-[100dvh] bg-black text-white pt-20">
 
         {/* Desktop Sidebar */}
-        <div className="hidden md:block w-[250px] border-r border-white/10 bg-white/5 p-4">
+        <div className="hidden md:flex flex-col w-[250px] border-r border-white/10 bg-[#0A0A0A] p-4">
 
           <button
             onClick={handleNewChat}
@@ -102,19 +102,40 @@ const Workspace = () => {
           >
             + New Chat
           </button>
+          <input
+  type="text"
+  placeholder="Search Chats"
+  className="w-full mt-3 p-3 rounded-xl bg-[#111111] border border-white/10 text-white outline-none"
+/>
 
-          <div className="mt-6 space-y-2">
+     <div className="flex-1 mt-6 space-y-2 overflow-y-auto">
             {chats.map((chat) => (
               <div
                 key={chat.id}
                 onClick={() => openChat(chat)}
-                className="p-3 rounded-xl bg-white/5 border border-white/10 text-sm truncate cursor-pointer hover:bg-white/10"
+                className="p-3 rounded-xl bg-[#111111] border border-white/10 text-sm truncate cursor-pointer hover:bg-[#1A1A1A]"
               >
                 {chat.title}
               </div>
             ))}
           </div>
 
+     <div className="border-t border-white/10 pt-4 mt-4 space-y-2">
+
+  <div className="p-3 rounded-xl bg-[#111111] border border-white/10 cursor-pointer">
+    Projects
+  </div>
+
+  <div className="p-3 rounded-xl bg-[#111111] border border-white/10 cursor-pointer">
+    Settings
+  </div>
+
+  <div className="p-3 rounded-xl bg-[#111111] border border-white/10 cursor-pointer">
+    Profile
+  </div>
+
+</div>
+          
         </div>
 
         {/* Main Area */}
@@ -165,7 +186,7 @@ const Workspace = () => {
                   className={`px-5 py-3 rounded-2xl max-w-[80%] ${
                     msg.sender === "user"
                       ? "self-end bg-gradient-to-r from-cyan-500 to-purple-600"
-                      : "self-start bg-white/10 border border-white/10"
+                      : "self-start bg-[#111111] border border-white/10 text-white"
                   }`}
                 >
                   {msg.text}
