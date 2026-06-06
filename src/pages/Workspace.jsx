@@ -158,6 +158,11 @@ const Workspace = () => {
                 className="w-full mb-3 py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-purple-600"
               >
                 + New Chat
+                <input
+            type="text"
+             placeholder="Search Chats"
+          className="w-full mb-3 p-3 rounded-xl bg-[#111111] border border-white/10 text-white outline-none"
+/> 
               </button>
 
               {chats.map((chat) => (
