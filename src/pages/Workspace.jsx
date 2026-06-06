@@ -168,7 +168,22 @@ const Workspace = () => {
                 >
                   {chat.title}
                 </div>
-              ))}
+              ))} 
+              <div className="border-t border-white/10 pt-3 mt-3 space-y-2">
+
+  <div className="p-3 rounded-xl bg-[#111111] border border-white/10">
+    Projects
+  </div>
+
+  <div className="p-3 rounded-xl bg-[#111111] border border-white/10">
+    Settings
+  </div>
+
+  <div className="p-3 rounded-xl bg-[#111111] border border-white/10">
+    Profile
+  </div>
+
+</div>
             </div>
           )}
 
