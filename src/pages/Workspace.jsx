@@ -238,17 +238,16 @@ useEffect(() => {
       : "self-start bg-[#111111] border border-white/10 text-white"
   }`}
 >
- <pre className="whitespace-pre-wrap break-words font-mono text-sm">
+ 
+<pre className="whitespace-pre-wrap break-words font-mono text-sm">
   {msg.text}
-</pre> 
+</pre>
 </div>
-                
-        ))
+))
 )}
 
-            <div ref={messagesEndRef} />
-
-          </div>
+<div ref={messagesEndRef} />
+          
 
           {/* Input */}
           <div className="mt-4 flex gap-2 bg-black/40 backdrop-blur-xl p-2 rounded-3xl">
@@ -266,24 +265,22 @@ useEffect(() => {
     }
   }}
 />
-              placeholder="Message AIVIO AI..."
-              value={message}
-              onChange={(e) => setMessage(e.target.value)}
-              onKeyDown={(e) => {
-                if (e.key === "Enter") {
-                  sendMessage()
-                }
-              }}
-              className="flex-1 bg-white/5 border border-white/10 rounded-2xl px-4 py-3 outline-none text-white"
-            />
 
-            <button
+           <button
               onClick={sendMessage}
               className="px-6 rounded-2xl bg-gradient-to-r from-cyan-500 to-purple-600 font-semibold"
             >
               Send
-            
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </>
   )
 }
 
-export default Workspace
+export default Workspace 
