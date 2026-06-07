@@ -188,7 +188,7 @@ useEffect(() => {
              placeholder="Search Chats"
           className="w-full mb-3 p-3 rounded-xl bg-[#111111] border border-white/10 text-white outline-none"
 /> 
-              
+              </div>
 
               {chats.map((chat) => (
                 <div
