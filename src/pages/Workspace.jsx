@@ -247,7 +247,7 @@ useEffect(() => {
 )}
 
 <div ref={messagesEndRef} />
-          
+          </div>
 
           {/* Input */}
           <div className="mt-4 flex gap-2 bg-black/40 backdrop-blur-xl p-2 rounded-3xl">
