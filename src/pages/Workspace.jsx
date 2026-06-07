@@ -243,8 +243,8 @@ useEffect(() => {
 </pre> 
 </div>
                 
-                    
-            )}
+        ))
+)}
 
             <div ref={messagesEndRef} />
 
