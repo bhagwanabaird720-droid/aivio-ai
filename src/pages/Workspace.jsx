@@ -188,7 +188,7 @@ useEffect(() => {
              placeholder="Search Chats"
           className="w-full mb-3 p-3 rounded-xl bg-[#111111] border border-white/10 text-white outline-none"
 /> 
-              </div>
+      
 
               {chats.map((chat) => (
                 <div
@@ -199,7 +199,7 @@ useEffect(() => {
                   {chat.title}
                 </div>
               ))} 
-              <div className="border-t border-white/10 pt-3 mt-3 space-y-2">
+             
 
   <div className="p-3 rounded-xl bg-[#111111] border border-white/10">
     Projects
@@ -213,7 +213,7 @@ useEffect(() => {
     Profile
   </div>
 
-</div>
+
             </div>
           )}
 
