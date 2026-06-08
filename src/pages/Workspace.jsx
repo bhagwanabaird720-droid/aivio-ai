@@ -18,6 +18,7 @@ const [activeChatId, setActiveChatId] = useState(() => {
 })
   
 const chatContainerRef = useRef(null)
+const textareaRef = useRef(null)
 
 useEffect(() => {
   if (chatContainerRef.current) {
@@ -97,6 +98,9 @@ useEffect(() => {
     }
 
     setMessage("")
+    setTimeout(() => {
+  textareaRef.current?.focus()
+}, 50)
 
     setTimeout(() => {
       const aiMessage = {
@@ -285,6 +289,7 @@ useEffect(() => {
           <div className="mt-3 flex gap-2 bg-black p-2 rounded-3xl ">
 
             <textarea
+  ref={textareaRef}
   placeholder="Message AIVIO AI..."
   value={message}
   onChange={(e) => setMessage(e.target.value)}
