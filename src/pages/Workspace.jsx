@@ -98,10 +98,7 @@ useEffect(() => {
     }
 
     setMessage("")
-
-    requestAnimationFrame(() => {
-  textareaRef.current?.focus()
-})
+    
 
     setTimeout(() => {
       const aiMessage = {
@@ -305,12 +302,13 @@ useEffect(() => {
 />
 
            <button
-              onClick={sendMessage}
-              className="px-6 rounded-2xl bg-gradient-to-r from-cyan-500 to-purple-600 font-semibold"
-            >
-              Send
-            </button>
-
+  type="button"
+  onMouseDown={(e) => e.preventDefault()}
+  onClick={sendMessage}
+  className="px-6 rounded-2xl bg-gradient-to-r from-cyan-500 to-purple-600 font-semibold"
+>
+  Send
+</button>
           </div>
 
         </div>
