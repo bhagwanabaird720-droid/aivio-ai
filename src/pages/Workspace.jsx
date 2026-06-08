@@ -251,8 +251,9 @@ useEffect(() => {
     {/* Messages */}
 <div
   ref={chatContainerRef}
-  className="flex-1 min-h-0 bg-white/5 border border-white/10 rounded-3xl p-6 overflow-y-auto flex flex-col gap-4"
+  className="flex-1 overflow-y-auto flex flex-col gap-4 px-4 py-6"
 >
+  
   {messages.length === 0 ? (
     <p className="text-gray-400">
       Welcome to AIVIO AI 🚀
