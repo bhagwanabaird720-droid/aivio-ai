@@ -20,11 +20,11 @@ const [activeChatId, setActiveChatId] = useState(() => {
 const chatContainerRef = useRef(null)
 const textareaRef = useRef(null)
 
-useEffect(() => {
-  if (chatContainerRef.current) {
-    chatContainerRef.current.scrollTop =
-      chatContainerRef.current.scrollHeight
-  }
+  useEffect(() => {
+  chatContainerRef.current?.scrollTo({
+    top: chatContainerRef.current.scrollHeight,
+    behavior: "smooth",
+  })
 }, [messages])
 
 useEffect(() => {
