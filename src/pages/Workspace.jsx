@@ -174,7 +174,7 @@ useEffect(() => {
         </div>
 
         {/* Main Area */}
-       <div className="flex-1 p-0 md:p-6 flex flex-col"> 
+       <div className="flex-1 p-2 md:p-6 flex flex-col h-full min-h-0">
 
           {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center justify-between sticky top-0 z-50 bg-black py-4 px-2">
@@ -249,10 +249,9 @@ useEffect(() => {
           )}
 
           {/* Messages */}
-        <div 
-        ref={chatContainerRef}
-  className="flex-1 bg-white/5 border border-white/10 rounded-3xl p-6 overflow-y-auto flex flex-col gap-4"
-  id="chat-container"
+        <div
+  ref={chatContainerRef}
+  className="flex-1 min-h-0 bg-white/5 border border-white/10 rounded-3xl p-6 overflow-y-auto flex flex-col gap-4"
 >
 
             {messages.length === 0 ? (
