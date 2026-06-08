@@ -51,7 +51,16 @@ useEffect(() => {
     setActiveChatId(chat.id)
     setShowMenu(false)
   }
+  const deleteChat = (chatId) => {
+  setChats((prev) =>
+    prev.filter((chat) => chat.id !== chatId)
+  )
 
+  if (activeChatId === chatId) {
+    setMessages([])
+    setActiveChatId(null)
+  }
+  }
   const sendMessage = () => {
     if (!message.trim()) return
 
