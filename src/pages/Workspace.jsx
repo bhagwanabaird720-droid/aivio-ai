@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react"
 import Navbar from "../components/Navbar"
-it
+
 const Workspace = () => {
 const [message, setMessage] = useState("")
 const [messages, setMessages] = useState([])
@@ -247,37 +247,38 @@ useEffect(() => {
   </div>
 )}  
 
-          {/* Messages */}
-        <div
+        
+    {/* Messages */}
+<div
   ref={chatContainerRef}
   className="flex-1 min-h-0 bg-white/5 border border-white/10 rounded-3xl p-6 overflow-y-auto flex flex-col gap-4"
 >
-
-            {messages.length === 0 ? (
-              <p className="text-gray-400">
-                Welcome to AIVIO AI 🚀
-              </p>
-            ) : (
-              messages.map((msg, index) => (
-                <div
-  key={index}
-  className={`px-5 py-3 rounded-2xl
-  max-w-[75%]
-  break-words
-  whitespace-pre-wrap
-  overflow-hidden
-  ${
-    msg.sender === "user"
-      ? "self-end bg-gradient-to-r from-cyan-500 to-purple-600 text-white"
-      : "self-start ml-2 bg-[#111111] border border-white/10 text-white"
-  }`}
->
- 
-<div className="whitespace-pre-wrap break-words text-sm">
-  {msg.text}
+  {messages.length === 0 ? (
+    <p className="text-gray-400">
+      Welcome to AIVIO AI 🚀
+    </p>
+  ) : (
+    messages.map((msg, index) => (
+      <div
+        key={index}
+        className={`px-5 py-3 rounded-2xl
+        max-w-[75%]
+        break-words
+        whitespace-pre-wrap
+        overflow-hidden
+        ${
+          msg.sender === "user"
+            ? "self-end bg-gradient-to-r from-cyan-500 to-purple-600 text-white"
+            : "self-start ml-2 bg-[#111111] border border-white/10 text-white"
+        }`}
+      >
+        <div className="whitespace-pre-wrap break-words text-sm">
+          {msg.text}
+        </div>
+      </div>
+    ))
+  )}
 </div>
-</div>
-))}
 
           {/* Input */}
           <div className="mt-3 flex gap-2 bg-black p-2 rounded-3xl ">
