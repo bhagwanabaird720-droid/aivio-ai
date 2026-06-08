@@ -172,10 +172,10 @@ useEffect(() => {
         </div>
 
         {/* Main Area */}
-        <div className="flex-1 p-0 md:p-6">
+       <div className="flex-1 p-0 md:p-6 flex flex-col"> 
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden flex items-center justify-between mb-4 sticky top-0 z-50 bg-black py-2">
+          <div className="md:hidden flex items-center justify-between sticky top-0 z-50 bg-black py-4 px-2">
 
 <button
   onClick={() => setShowMenu(!showMenu)}
@@ -237,7 +237,7 @@ useEffect(() => {
           )}
 
           {/* Messages */}
-          <div className="h-[70vh] bg-white/5 border border-white/10 rounded-3xl p-6 overflow-y-auto flex flex-col gap-4">
+          <div className="flex-1 bg-white/5 border border-white/10 rounded-3xl p-6 overflow-y-auto flex flex-col gap-4">
 
             {messages.length === 0 ? (
               <p className="text-gray-400">
@@ -270,7 +270,7 @@ useEffect(() => {
           </div>
 
           {/* Input */}
-          <div className="mt-4 flex gap-2 bg-black/40 backdrop-blur-xl p-2 rounded-3xl">
+          <div className="mt-3 flex gap-2 bg-black p-2 rounded-3xl sticky bottom-0">
 
             <textarea
   placeholder="Message AIVIO AI..."
