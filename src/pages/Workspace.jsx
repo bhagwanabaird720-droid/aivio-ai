@@ -245,7 +245,7 @@ useEffect(() => {
     </div>
 
   </div>
-)}
+))}
 
           {/* Messages */}
         <div
