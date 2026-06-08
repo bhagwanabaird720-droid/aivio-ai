@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react"
 import Navbar from "../components/Navbar"
-
+it
 const Workspace = () => {
 const [message, setMessage] = useState("")
 const [messages, setMessages] = useState([])
@@ -276,12 +276,8 @@ useEffect(() => {
 <div className="whitespace-pre-wrap break-words text-sm">
   {msg.text}
 </div>
-  </div>
-)
-)}
-
-
-          </div>
+</div>
+))}
 
           {/* Input */}
           <div className="mt-3 flex gap-2 bg-black p-2 rounded-3xl ">
