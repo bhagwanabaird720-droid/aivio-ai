@@ -39,12 +39,16 @@ useEffect(() => {
   )
 }, [activeChatId])
   
+ const handleNewChat = () => {
+  localStorage.removeItem("aivio-chats")
+  localStorage.removeItem("aivio-active-chat")
 
-  const handleNewChat = () => {
-    setMessages([])
-    setActiveChatId(null)
-    setShowMenu(false)
-  }
+  setChats([])
+  setMessages([])
+  setActiveChatId(null)
+  setShowMenu(false)
+ }
+  
 
   const openChat = (chat) => {
     setMessages(chat.messages)
