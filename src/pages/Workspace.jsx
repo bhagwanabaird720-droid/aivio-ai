@@ -194,7 +194,7 @@ useEffect(() => {
 </div>
 
   
-         {/* Mobile Chat List */}
+       {/* Mobile Chat List */}
 {showMenu && (
   <div className="md:hidden fixed top-0 left-0 w-[280px] h-screen bg-[#0A0A0A] border-r border-white/10 z-[999] p-4 overflow-y-auto">
 
@@ -245,7 +245,7 @@ useEffect(() => {
     </div>
 
   </div>
-))}
+)}  
 
           {/* Messages */}
         <div
