@@ -18,11 +18,13 @@ const [activeChatId, setActiveChatId] = useState(() => {
 })
 
 const messagesEndRef = useRef(null)
+const chatContainerRef = useRef(null)
 
 useEffect(() => {
-  messagesEndRef.current?.scrollIntoView({
-    behavior: "smooth",
-  })
+  if (chatContainerRef.current) {
+    chatContainerRef.current.scrollTop =
+      chatContainerRef.current.scrollHeight
+  }
 }, [messages])
 
 useEffect(() => {
@@ -247,7 +249,11 @@ useEffect(() => {
           )}
 
           {/* Messages */}
-          <div className="flex-1 bg-white/5 border border-white/10 rounded-3xl p-6 overflow-y-auto flex flex-col gap-4">
+        <div 
+        ref={chatContainerRef}
+  className="flex-1 bg-white/5 border border-white/10 rounded-3xl p-6 overflow-y-auto flex flex-col gap-4"
+  id="chat-container"
+>
 
             {messages.length === 0 ? (
               <p className="text-gray-400">
@@ -280,7 +286,7 @@ useEffect(() => {
           </div>
 
           {/* Input */}
-          <div className="mt-3 flex gap-2 bg-black p-2 rounded-3xl sticky bottom-0">
+          <div className="mt-3 flex gap-2 bg-black p-2 rounded-3xl ">
 
             <textarea
   placeholder="Message AIVIO AI..."
