@@ -16,8 +16,7 @@ const [activeChatId, setActiveChatId] = useState(() => {
   const savedId = localStorage.getItem("aivio-active-chat")
   return savedId ? JSON.parse(savedId) : null
 })
-
-const messagesEndRef = useRef(null)
+  
 const chatContainerRef = useRef(null)
 
 useEffect(() => {
@@ -174,7 +173,7 @@ useEffect(() => {
         </div>
 
         {/* Main Area */}
-       <div className="flex-1 p-2 md:p-6 flex flex-col h-full min-h-0">
+       <div className="flex-1 p-2 md:p-6 flex flex-col h-[100dvh] min-h-0">
 
           {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center justify-between sticky top-0 z-50 bg-black py-4 px-2">
@@ -194,59 +193,59 @@ useEffect(() => {
 
 </div>
 
-          {/* Mobile Chat List */}
-          {showMenu && (
+  
+         {/* Mobile Chat List */}
+{showMenu && (
   <div className="md:hidden fixed top-0 left-0 w-[280px] h-screen bg-[#0A0A0A] border-r border-white/10 z-[999] p-4 overflow-y-auto">
 
-              <button
-                onClick={handleNewChat}
-                className="w-full mb-3 py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-purple-600"
-              >
-             <div className="flex justify-between items-center mb-4">
-  <h2 className="text-lg font-semibold">AIVIO</h2>
+    <div className="flex justify-between items-center mb-4">
+      <h2 className="text-lg font-semibold">AIVIO</h2>
 
-  <button
-    onClick={() => setShowMenu(false)}
-    className="px-3 py-2 rounded-lg bg-white/10"
-  >
-    ✕
-  </button>
-</div>
-                + New Chat
-                </button>
-                <input
-            type="text"
-             placeholder="Search Chats"
-          className="w-full mb-3 p-3 rounded-xl bg-[#111111] border border-white/10 text-white outline-none"
-/> 
-      
+      <button
+        onClick={() => setShowMenu(false)}
+        className="px-3 py-2 rounded-lg bg-white/10"
+      >
+        ✕
+      </button>
+    </div>
 
-              {chats.map((chat) => (
-                <div
-                  key={chat.id}
-                  onClick={() => openChat(chat)}
-                  className="p-3 mb-2 rounded-xl bg-white/5 border border-white/10 text-sm cursor-pointer"
-                >
-                  {chat.title}
-                </div>
-              ))} 
-             
+    <button
+      onClick={handleNewChat}
+      className="w-full mb-3 py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-purple-600"
+    >
+      + New Chat
+    </button>
 
-  <div className="p-3 rounded-xl bg-[#111111] border border-white/10">
-    Projects
+    <input
+      type="text"
+      placeholder="Search Chats"
+      className="w-full mb-3 p-3 rounded-xl bg-[#111111] border border-white/10 text-white outline-none"
+    />
+
+    {chats.map((chat) => (
+      <div
+        key={chat.id}
+        onClick={() => openChat(chat)}
+        className="p-3 mb-2 rounded-xl bg-white/5 border border-white/10 text-sm cursor-pointer"
+      >
+        {chat.title}
+      </div>
+    ))}
+
+    <div className="p-3 rounded-xl bg-[#111111] border border-white/10">
+      Projects
+    </div>
+
+    <div className="p-3 rounded-xl bg-[#111111] border border-white/10">
+      Settings
+    </div>
+
+    <div className="p-3 rounded-xl bg-[#111111] border border-white/10">
+      Profile
+    </div>
+
   </div>
-
-  <div className="p-3 rounded-xl bg-[#111111] border border-white/10">
-    Settings
-  </div>
-
-  <div className="p-3 rounded-xl bg-[#111111] border border-white/10">
-    Profile
-  </div>
-
-
-            </div>
-          )}
+)}
 
           {/* Messages */}
         <div
@@ -263,25 +262,24 @@ useEffect(() => {
                 <div
   key={index}
   className={`px-5 py-3 rounded-2xl
-  max-w-[85%]
+  max-w-[75%]
   break-words
   whitespace-pre-wrap
   overflow-hidden
   ${
     msg.sender === "user"
       ? "self-end bg-gradient-to-r from-cyan-500 to-purple-600 text-white"
-      : "self-start bg-[#111111] border border-white/10 text-white"
+      : "self-start ml-2 bg-[#111111] border border-white/10 text-white"
   }`}
 >
  
-<pre className="whitespace-pre-wrap break-words font-mono text-sm">
+<div className="whitespace-pre-wrap break-words text-sm">
   {msg.text}
-</pre>
 </div>
 ))
 )}
 
-<div ref={messagesEndRef} />
+
           </div>
 
           {/* Input */}
