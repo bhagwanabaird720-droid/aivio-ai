@@ -122,9 +122,9 @@ useEffect(() => {
 
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
 
-      <div className="flex h-[100dvh] bg-black text-white pt-20">
+      <div className="flex h-[100dvh] bg-black text-white ">
 
         {/* Desktop Sidebar */}
         <div className="hidden md:flex flex-col w-[250px] border-r border-white/10 bg-[#0A0A0A] p-4">
@@ -172,7 +172,7 @@ useEffect(() => {
         </div>
 
         {/* Main Area */}
-        <div className="flex-1 p-3 md:p-6">
+        <div className="flex-1 p-0 md:p-6">
 
           {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center justify-between mb-4 sticky top-0 z-50 bg-black py-2">
