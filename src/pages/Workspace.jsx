@@ -38,8 +38,8 @@ useEffect(() => {
     JSON.stringify(activeChatId)
   )
 }, [activeChatId])
-  
- const handleNewChat = () => {
+
+  const handleNewChat = () => {
   localStorage.removeItem("aivio-chats")
   localStorage.removeItem("aivio-active-chat")
 
@@ -47,7 +47,7 @@ useEffect(() => {
   setMessages([])
   setActiveChatId(null)
   setShowMenu(false)
- }
+  }
   
 
   const openChat = (chat) => {
