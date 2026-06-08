@@ -98,9 +98,7 @@ useEffect(() => {
     }
 
     setMessage("")
-    setTimeout(() => {
-  textareaRef.current?.focus()
-}, 50)
+    
 
     setTimeout(() => {
       const aiMessage = {
