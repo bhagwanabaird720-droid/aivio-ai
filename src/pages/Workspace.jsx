@@ -98,7 +98,10 @@ useEffect(() => {
     }
 
     setMessage("")
-    
+
+    requestAnimationFrame(() => {
+  textareaRef.current?.focus()
+})
 
     setTimeout(() => {
       const aiMessage = {
