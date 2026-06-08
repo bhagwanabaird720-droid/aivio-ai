@@ -40,10 +40,6 @@ useEffect(() => {
 }, [activeChatId])
 
   const handleNewChat = () => {
-  localStorage.removeItem("aivio-chats")
-  localStorage.removeItem("aivio-active-chat")
-
-  setChats([])
   setMessages([])
   setActiveChatId(null)
   setShowMenu(false)
@@ -198,12 +194,22 @@ useEffect(() => {
 
           {/* Mobile Chat List */}
           {showMenu && (
-            <div className="md:hidden mb-4 p-3 rounded-2xl bg-white/5 border border-white/10">
+  <div className="md:hidden fixed top-0 left-0 w-[280px] h-screen bg-[#0A0A0A] border-r border-white/10 z-[999] p-4 overflow-y-auto">
 
               <button
                 onClick={handleNewChat}
                 className="w-full mb-3 py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-purple-600"
               >
+             <div className="flex justify-between items-center mb-4">
+  <h2 className="text-lg font-semibold">AIVIO</h2>
+
+  <button
+    onClick={() => setShowMenu(false)}
+    className="px-3 py-2 rounded-lg bg-white/10"
+  >
+    ✕
+  </button>
+</div>
                 + New Chat
                 </button>
                 <input
