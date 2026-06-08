@@ -175,17 +175,21 @@ useEffect(() => {
         <div className="flex-1 p-3 md:p-6">
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden flex items-center gap-3 mb-4">
-  <button
-    onClick={() => setShowMenu(!showMenu)}
-    className="px-3 py-2 rounded-xl bg-white/10"
-  >
-    ☰
-  </button>
+          <div className="md:hidden flex items-center justify-between mb-4 sticky top-0 z-50 bg-black py-2">
 
-  <h1 className="text-lg font-semibold">
-    AIVIO AI
-  </h1>
+<button
+  onClick={() => setShowMenu(!showMenu)}
+  className="px-3 py-2 rounded-xl bg-white/10"
+>
+  ☰
+</button>
+
+<button
+  className="px-3 py-2 rounded-xl bg-white/10"
+>
+  ⋮
+</button>
+
 </div>
 
           {/* Mobile Chat List */}
