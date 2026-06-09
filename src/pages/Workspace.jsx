@@ -312,6 +312,8 @@ useEffect(() => {
       Send
     </button>
 
+    </div>
+
   </div> {/* Input wrapper close */}
     </div> {/* Main Area close */}
     </div> {/* Root flex close */}
