@@ -178,7 +178,7 @@ useEffect(() => {
        <div className="flex-1 p-2 pt-20 md:p-6 flex flex-col h-[100dvh] min-h-0">
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden flex items-center justify-between fixed top-0 left-0 right-0 z-50 bg-black py-4 px-2"
+          <div className="md:hidden fixed top-0 left-0 right-0 z-50 flex items-center justify-between bg-black p-4">
    >
 
 <button
@@ -252,9 +252,9 @@ useEffect(() => {
 
         
     {/* Messages */}
-<div
+  <div
   ref={chatContainerRef}
-  className="flex-1 min-h-0 overflow-y-auto flex flex-col gap-4 px-4 py-6"
+  className="flex-1 min-h-0 overflow-y-auto flex flex-col gap-4 px-4 py-6 pb-24"
 >
   
   {messages.length === 0 ? (
@@ -284,7 +284,7 @@ useEffect(() => {
 </div>
 
           {/* Input */}
-          <div className="mt-3 flex gap-2 bg-black p-2 rounded-3xl ">
+          <div className="fixed bottom-0 left-0 right-0 z-50 bg-black p-2">
 
             <textarea
   ref={textareaRef}
