@@ -268,7 +268,6 @@ useEffect(() => {
         max-w-[75%]
         break-words
         whitespace-pre-wrap
-        overflow-hidden
         ${
           msg.sender === "user"
             ? "self-end bg-gradient-to-r from-cyan-500 to-purple-600 text-white"
