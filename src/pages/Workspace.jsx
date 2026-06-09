@@ -175,7 +175,7 @@ useEffect(() => {
         </div>
 
         {/* Main Area */}
-       <div className="flex-1 p-2 pt-24 md:p-6 flex flex-col h-[100dvh] min-h-0">
+       <div className="flex-1 flex flex-col h-[100dvh] min-h-0">
 
           {/* Mobile Menu Button */}
           <div className="md:hidden fixed top-0 left-0 right-0 z-[9999] flex items-center justify-between px-4 py-4 bg-[#0A0A0A]
