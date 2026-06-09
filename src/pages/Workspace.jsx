@@ -315,8 +315,6 @@ useEffect(() => {
   </div>
 </div>   
 
-      </div>
-
     </>
   )
 }
