@@ -285,34 +285,37 @@ useEffect(() => {
 </div>
 
           {/* Input */}
-          <div className="fixed bottom-0 left-0 right-0 z-50 bg-black p-2">
+<div className="fixed bottom-0 left-0 right-0 z-50 bg-black p-3">
 
-            <textarea
-  ref={textareaRef}
-  placeholder="Message AIVIO AI..."
-  value={message}
-  onChange={(e) => setMessage(e.target.value)}
-  rows={1}
-  className="flex-1 bg-white/5 border border-white/10 rounded-2xl px-4 py-3 outline-none text-white resize-none"
-  onKeyDown={(e) => {
-    if (e.key === "Enter" && !e.shiftKey) {
-      e.preventDefault()
-      sendMessage()
-    }
-  }}
-/>
+  <div className="flex items-center gap-2 max-w-4xl mx-auto">
 
-           <button
-  type="button"
-  onMouseDown={(e) => e.preventDefault()}
-  onClick={sendMessage}
-  className="px-6 rounded-2xl bg-gradient-to-r from-cyan-500 to-purple-600 font-semibold"
->
-  Send
-</button>
-          </div>
+    <textarea
+      ref={textareaRef}
+      placeholder="Message AIVIO AI..."
+      value={message}
+      onChange={(e) => setMessage(e.target.value)}
+      rows={1}
+      className="flex-1 bg-[#111111] border border-white/10 rounded-3xl px-4 py-3 outline-none text-white resize-none"
+      onKeyDown={(e) => {
+        if (e.key === "Enter" && !e.shiftKey) {
+          e.preventDefault()
+          sendMessage()
+        }
+      }}
+    />
 
-        </div>
+    <button
+      type="button"
+      onMouseDown={(e) => e.preventDefault()}
+      onClick={sendMessage}
+      className="w-12 h-12 rounded-full bg-gradient-to-r from-cyan-500 to-purple-600 flex items-center justify-center"
+    >
+      ↑
+    </button>
+
+  </div>
+
+</div>
 
       </div>
 
