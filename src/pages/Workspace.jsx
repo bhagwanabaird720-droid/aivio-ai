@@ -179,6 +179,7 @@ useEffect(() => {
 
           {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center justify-between fixed top-0 left-0 right-0 z-50 bg-black py-4 px-2"
+   >
 
 <button
   onClick={() => setShowMenu(!showMenu)}
