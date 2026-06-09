@@ -312,11 +312,12 @@ useEffect(() => {
       Send
     </button>
 
-  </div>
-</div>   
+  </div> {/* Input wrapper close */}
+    </div> {/* Main Area close */}
+    </div> {/* Root flex close */}
 
     </>
   )
 }
 
-export default Workspace 
+export default Workspace
