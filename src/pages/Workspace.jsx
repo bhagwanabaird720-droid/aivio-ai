@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react"
+svimport { useState, useRef, useEffect } from "react"
 import Navbar from "../components/Navbar"
 
 const Workspace = () => {
@@ -178,19 +178,17 @@ useEffect(() => {
        <div className="flex-1 flex flex-col h-[100dvh] min-h-0">
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden fixed top-0 left-0 right-0 z-[9999] flex items-center justify-between px-4 py-4 bg-[#0A0A0A]
-            border-b border-white/10">
+          <div className="md:hidden fixed top-0 left-0 right-0 z-[9999] flex items-center justify-between px-4 py-2 bg-black"
    
-
 <button
   onClick={() => setShowMenu(!showMenu)}
-  className="px-3 py-2 rounded-xl bg-white/10"
+  className="text-white text-3xl leading-none"
 >
   ☰
 </button>
 
 <button
-  className="px-3 py-2 rounded-xl bg-white/10"
+  className="text-white text-3xl leading-none"
 >
   ⋮
 </button>
