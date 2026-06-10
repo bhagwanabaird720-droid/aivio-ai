@@ -175,6 +175,7 @@ useEffect(() => {
         </div>
 
         {/* Main Area */}
+  <div className="flex-1 flex flex-col h-[100dvh] min-h-0">
  <div
   className="md:hidden fixed top-4 left-4 right-4 z-[9999] flex items-center justify-between"
 >
