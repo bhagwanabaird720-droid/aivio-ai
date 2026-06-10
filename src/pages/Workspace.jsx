@@ -181,13 +181,13 @@ useEffect(() => {
 >
   <button
     onClick={() => setShowMenu(!showMenu)}
-    className="w-14 h-14 rounded-2xl bg-[#1E1E1E] flex items-center justify-center text-white text-3xl"
+    className="w-11 h-11 rounded-×l bg-[#1E1E1E] flex items-center justify-center text-white text-2xl"
   >
     ☰
   </button>
 
   <button
-    className="w-14 h-14 rounded-2xl bg-[#1E1E1E] flex items-center justify-center text-white text-3xl"
+    className="w-11 h-11 rounded-×l bg-[#1E1E1E] flex items-center justify-center text-white text-2xl"
   >
     ⋮
   </button>
@@ -251,7 +251,7 @@ useEffect(() => {
     {/* Messages */}
   <div
   ref={chatContainerRef}
-  className="flex-1 min-h-0 overflow-y-auto flex flex-col gap-4 px-4 pt-20 pb-24"
+  className="flex-1 min-h-0 overflow-y-auto flex flex-col gap-2 px-4 pt-20 pb-24"
 >
   
   {messages.length === 0 ? (
@@ -262,14 +262,14 @@ useEffect(() => {
     messages.map((msg, index) => (
       <div
         key={index}
-        className={`px-5 py-3 rounded-2xl
-        max-w-[75%]
+        className={`px-3 py-2 rounded-2xl
+        max-w-[65%]
         break-words
         whitespace-pre-wrap
         ${
           msg.sender === "user"
           ? "self-end bg-gradient-to-r from-cyan-500 to-purple-600 text-white px-4 py-3 rounded-2xl w-fit max-w-[80%]"  
-            : "self-start ml-2 bg-[#111111] border border-white/10 text-white"
+            : "self-start bg-[#111111] text-white px-3 py-2 rounded-2xl max-w-[70%]"
         }`}
       >
         <div className="whitespace-pre-wrap break-words text-sm">
@@ -290,7 +290,7 @@ useEffect(() => {
       value={message}
       onChange={(e) => setMessage(e.target.value)}
       rows={1}
-      className="flex-1 bg-white/5 border border-white/10 rounded-2xl px-4 py-3 outline-none text-white resize-none"
+      className="flex-1 bg-[#111111] rounded-full px-4 py-2 text-white outline-none"
       onKeyDown={(e) => {
         if (e.key === "Enter" && !e.shiftKey) {
           e.preventDefault()
@@ -303,7 +303,7 @@ useEffect(() => {
       type="button"
       onMouseDown={(e) => e.preventDefault()}
       onClick={sendMessage}
-      className="px-6 rounded-2xl bg-gradient-to-r from-cyan-500 to-purple-600 font-semibold"
+      className="px-4 py-2 rounded-full bg-gradient-to-r from-cyan-500 to-purple-600 font-semibold"
     >
       Send
     </button>
