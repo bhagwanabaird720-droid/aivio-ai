@@ -175,25 +175,21 @@ useEffect(() => {
         </div>
 
         {/* Main Area */}
-       <div className="flex-1 flex flex-col h-[100dvh] min-h-0">
-
-          {/* Mobile Menu Button */}
-          <div className="md:hidden fixed top-0 left-0 right-0 z-[9999] flex items-center 
-            justify-between px-4 py-2 bg-black">
-   
-<button
-  onClick={() => setShowMenu(!showMenu)}
-  className="text-white text-3xl leading-none"
+ <div
+  className="md:hidden fixed top-4 left-4 right-4 z-[9999] flex items-center justify-between"
 >
-  ☰
-</button>
+  <button
+    onClick={() => setShowMenu(!showMenu)}
+    className="w-14 h-14 rounded-2xl bg-[#1E1E1E] flex items-center justify-center text-white text-3xl"
+  >
+    ☰
+  </button>
 
-<button
-  className="text-white text-3xl leading-none"
->
-  ⋮
-</button>
-
+  <button
+    className="w-14 h-14 rounded-2xl bg-[#1E1E1E] flex items-center justify-center text-white text-3xl"
+  >
+    ⋮
+  </button>
 </div>
 
   
@@ -254,7 +250,7 @@ useEffect(() => {
     {/* Messages */}
   <div
   ref={chatContainerRef}
-  className="flex-1 min-h-0 overflow-y-auto flex flex-col gap-4 px-4 py-6 pb-24"
+  className="flex-1 min-h-0 overflow-y-auto flex flex-col gap-4 px-4 pt-20 pb-24"
 >
   
   {messages.length === 0 ? (
@@ -271,7 +267,7 @@ useEffect(() => {
         whitespace-pre-wrap
         ${
           msg.sender === "user"
-            ? "self-end bg-gradient-to-r from-cyan-500 to-purple-600 text-white"
+          ? "self-end bg-gradient-to-r from-cyan-500 to-purple-600 text-white px-4 py-3 rounded-2xl w-fit max-w-[80%]"  
             : "self-start ml-2 bg-[#111111] border border-white/10 text-white"
         }`}
       >
