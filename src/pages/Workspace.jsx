@@ -181,13 +181,13 @@ useEffect(() => {
 >
   <button
     onClick={() => setShowMenu(!showMenu)}
-    className="w-11 h-11 rounded-×l bg-[#1E1E1E] flex items-center justify-center text-white text-2xl"
+    className="w-11 h-11 rounded-xl bg-[#1E1E1E] flex items-center justify-center text-white text-2xl"
   >
     ☰
   </button>
 
   <button
-    className="w-11 h-11 rounded-×l bg-[#1E1E1E] flex items-center justify-center text-white text-2xl"
+    className="w-11 h-11 rounded-xl bg-[#1E1E1E] flex items-center justify-center text-white text-2xl"
   >
     ⋮
   </button>
@@ -251,7 +251,7 @@ useEffect(() => {
     {/* Messages */}
   <div
   ref={chatContainerRef}
-  className="flex-1 min-h-0 overflow-y-auto flex flex-col gap-2 px-4 pt-20 pb-24"
+  className="flex-1 min-h-0 overflow-y-auto flex flex-col gap-2 px-4 pt-28 pb-24"
 >
   
   {messages.length === 0 ? (
@@ -268,8 +268,8 @@ useEffect(() => {
         whitespace-pre-wrap
         ${
           msg.sender === "user"
-          ? "self-end bg-gradient-to-r from-cyan-500 to-purple-600 text-white px-4 py-3 rounded-2xl w-fit max-w-[80%]"  
-            : "self-start bg-[#111111] text-white px-3 py-2 rounded-2xl max-w-[70%]"
+        ? "self-end bg-[#202123] text-white px-3 py-2 rounded-2xl w-fit max-w-[75%]"
+        : "self-start bg-[#2f2f2f] text-white px-3 py-2 rounded-2xl max-w-[75%]"
         }`}
       >
         <div className="whitespace-pre-wrap break-words text-sm">
@@ -290,7 +290,7 @@ useEffect(() => {
       value={message}
       onChange={(e) => setMessage(e.target.value)}
       rows={1}
-      className="flex-1 bg-[#111111] rounded-full px-4 py-2 text-white outline-none"
+      className="flex-1 bg-[#2f2f2f] rounded-full px-4 py-3 text-white outline-none"
       onKeyDown={(e) => {
         if (e.key === "Enter" && !e.shiftKey) {
           e.preventDefault()
@@ -303,9 +303,9 @@ useEffect(() => {
       type="button"
       onMouseDown={(e) => e.preventDefault()}
       onClick={sendMessage}
-      className="px-4 py-2 rounded-full bg-gradient-to-r from-cyan-500 to-purple-600 font-semibold"
+      className="w-10 h-10 rounded-full bg-white text-black flex items-center justify-center font-bold"
     >
-      Send
+      ↑
     </button>
 
     </div>
