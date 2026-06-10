@@ -20,6 +20,17 @@ const [activeChatId, setActiveChatId] = useState(() => {
 const chatContainerRef = useRef(null)
 const textareaRef = useRef(null)
 
+useEffect(() => {
+  const handleResize = () => {
+    window.scrollTo(0, 0)
+  }
+
+  window.addEventListener("resize", handleResize)
+
+  return () => {
+    window.removeEventListener("resize", handleResize)
+  }
+}, [])
   useEffect(() => {
   chatContainerRef.current?.scrollTo({
     top: chatContainerRef.current.scrollHeight,
@@ -176,8 +187,14 @@ useEffect(() => {
 
         {/* Main Area */}
   <div className="flex-1 flex flex-col h-[100dvh] min-h-0">
- <div
-  className="md:hidden fixed top-4 left-4 right-4 z-[9999] flex items-center justify-between"
+  <div
+  className="md:hidden fixed top-4 left-4 right-4 z-[99999] flex items-center justify-between"
+  style={{
+    position: "fixed",
+    top: "16px",
+    left: "16px",
+    right: "16px",
+  }}
 >
   <button
     onClick={() => setShowMenu(!showMenu)}
