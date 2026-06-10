@@ -279,14 +279,14 @@ useEffect(() => {
     messages.map((msg, index) => (
       <div
         key={index}
-        className={`px-3 py-2 rounded-2xl
+        className={
         max-w-[65%]
         break-words
         whitespace-pre-wrap
         ${
           msg.sender === "user"
         ? "self-end bg-[#202123] text-white px-3 py-2 rounded-2xl w-fit max-w-[75%]"
-        : "self-start bg-[#2f2f2f] text-white px-3 py-2 rounded-2xl max-w-[75%]"
+        : "self-start text-white max-w-[70%]"
         }`}
       >
         <div className="whitespace-pre-wrap break-words text-sm">
