@@ -227,7 +227,7 @@ useEffect(() => {
 }}
 >
   <div
-  className="md:hidden fixed top-0 left-0 right-0 z-[99999] bg-black px-4 pt-4 pb-2 flex items-center justify-between"
+ className="md:hidden fixed top-12 left-4 right-4 z-[99999] flex items-center justify-between" 
 >
   <button
     onClick={() => setShowMenu(!showMenu)}
