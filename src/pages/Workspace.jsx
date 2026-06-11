@@ -20,17 +20,7 @@ const [activeChatId, setActiveChatId] = useState(() => {
 const chatContainerRef = useRef(null)
 const textareaRef = useRef(null)
 
-useEffect(() => {
-  const handleResize = () => {
-    window.scrollTo(0, 0)
-  }
 
-  window.addEventListener("resize", handleResize)
-
-  return () => {
-    window.removeEventListener("resize", handleResize)
-  }
-}, [])
 useEffect(() => {
   setTimeout(() => {
     chatContainerRef.current?.scrollTo({
@@ -142,7 +132,7 @@ useEffect(() => {
     <>
       {/* <Navbar /> */}
 
-      <div className="flex h-[100dvh] bg-black text-white ">
+      <div className="flex h-screen bg-black text-white">
 
         {/* Desktop Sidebar */}
         <div className="hidden md:flex flex-col w-[250px] border-r border-white/10 bg-[#0A0A0A] p-4">
@@ -190,7 +180,7 @@ useEffect(() => {
         </div>
 
         {/* Main Area */}
-  <div className="flex-1 flex flex-col h-screen overflow-hidden">
+  <div className="flex-1 flex flex-col overflow-hidden">
   <div
   className="md:hidden fixed top-4 left-4 right-4 z-[99999] flex items-center justify-between pointer-events-auto"
 >
@@ -266,7 +256,7 @@ useEffect(() => {
     {/* Messages */}
   <div
   ref={chatContainerRef}
-  className="flex-1 min-h-0 overflow-y-auto flex flex-col gap-0.5 px-4 pt-16 pb-24"
+    className="flex-1 min-h-0 overflow-y-auto flex flex-col gap-0.5 px-4 pt-16 pb-40"
 >
   
   {messages.length === 0 ? (
