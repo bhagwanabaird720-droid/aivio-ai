@@ -268,7 +268,7 @@ useEffect(() => {
     {/* Messages */}
   <div
   ref={chatContainerRef}
-  className="flex-1 min-h-0 overflow-y-auto flex flex-col gap-2 px-4 pt-28 pb-24"
+  className="flex-1 min-h-0 overflow-y-auto flex flex-col gap-1 px-4 pt-20 pb-24"
 >
   
   {messages.length === 0 ? (
@@ -281,8 +281,8 @@ useEffect(() => {
         key={index}
         className={`break-words whitespace-pre-wrap ${
   msg.sender === "user"
-    ? "self-end bg-[#202123] text-white px-3 py-2 rounded-2xl w-fit max-w-[75%]"
-    : "self-start text-white"
+    ? "self-end text-white max-w-[75%]"
+    : "self-start text-white max-w-[75%]"
 }`}
       >
         <div className="whitespace-pre-wrap break-words text-sm">
