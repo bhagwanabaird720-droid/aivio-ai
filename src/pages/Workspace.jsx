@@ -325,10 +325,10 @@ useEffect(() => {
   )}
 </div>
 
-      {/* Input */}
-<div className="fixed bottom-0 left-0 right-0 z-[99999] bg-black px-3 pb-3">
+{/* Input */}
+<div className="fixed bottom-0 left-0 right-0 z-[99999] bg-black pb-3">
 
-  <div className="flex items-center gap-2">
+  <div className="flex items-center gap-2 max-w-[680px] mx-auto px-3">
 
     {/* Plus Button */}
     <button
