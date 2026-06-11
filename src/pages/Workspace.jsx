@@ -221,9 +221,13 @@ useEffect(() => {
   <div
   className="flex-1 flex flex-col overflow-hidden"
   style={{ height: viewportHeight }}
+  style={{
+  height: viewportHeight,
+  position: "relative"
+}}
 >
   <div
-  className="md:hidden fixed top-8 left-4 right-4 z-[99999] flex items-center justify-between"
+  className="md:hidden fixed top-0 left-0 right-0 z-[99999] bg-black px-4 pt-4 pb-2 flex items-center justify-between"
 >
   <button
     onClick={() => setShowMenu(!showMenu)}
@@ -297,7 +301,7 @@ useEffect(() => {
     {/* Messages */}
   <div
   ref={chatContainerRef}
-  className="flex-1 overflow-y-auto px-4 pt-20 pb-32"
+  className="absolute top-[70px] bottom-[80px] left-0 right-0 overflow-y-auto px-4"
 >
   {messages.length === 0 ? (
     <p className="text-gray-400">
