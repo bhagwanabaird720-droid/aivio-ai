@@ -197,7 +197,7 @@ useEffect(() => {
   style={{ height: viewportHeight }}
 >
   <div
-  className="md:hidden fixed top-4 left-4 right-4 z-[99999] flex items-center justify-between pointer-events-auto"
+  className="md:hidden fixed top-8 left-4 right-4 z-[99999] flex items-center justify-between"
 >
   <button
     onClick={() => setShowMenu(!showMenu)}
@@ -271,34 +271,27 @@ useEffect(() => {
     {/* Messages */}
   <div
   ref={chatContainerRef}
-    className="flex-1 overflow-y-auto px-4 pt-20 pb-32"
+  className="flex-1 overflow-y-auto px-4 pt-20 pb-32"
 >
-  
   {messages.length === 0 ? (
     <p className="text-gray-400">
       Welcome to AIVIO AI 🚀
     </p>
   ) : (
     messages.map((msg, index) => (
-  <div
-    key={index}
-    className={`w-full flex mb-3 ${
-      msg.sender === "user"
-        ? "justify-end"
-        : "justify-start"
-    }`}
-  >
-    <div
-      className={`max-w-[80%] px-4 py-2 rounded-2xl text-sm break-words ${
-        msg.sender === "user"
-          ? "bg-blue-600 text-white"
-          : "bg-zinc-800 text-white"
-      }`}
-    >
-      {msg.text}
-    </div>
-  </div>
-))
+      <div
+        key={index}
+        className={`w-full mb-2 ${
+          msg.sender === "user"
+            ? "text-right"
+            : "text-left"
+        }`}
+      >
+        <div className="text-white text-sm break-words">
+          {msg.text}
+        </div>
+      </div>
+    ))
   )}
 </div>
 
