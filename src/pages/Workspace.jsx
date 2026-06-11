@@ -31,11 +31,13 @@ useEffect(() => {
     window.removeEventListener("resize", handleResize)
   }
 }, [])
-  useEffect(() => {
-  chatContainerRef.current?.scrollTo({
-    top: chatContainerRef.current.scrollHeight,
-    behavior: "smooth",
-  })
+useEffect(() => {
+  setTimeout(() => {
+    chatContainerRef.current?.scrollTo({
+      top: chatContainerRef.current.scrollHeight,
+      behavior: "smooth",
+    })
+  }, 100)
 }, [messages])
 
 useEffect(() => {
@@ -109,7 +111,9 @@ useEffect(() => {
     }
 
     setMessage("")
-    
+    setTimeout(() => {
+  textareaRef.current?.focus()
+}, 50)
 
     setTimeout(() => {
       const aiMessage = {
@@ -328,12 +332,13 @@ useEffect(() => {
 
     {/* Send Button */}
     <button
-      onClick={sendMessage}
-      className="w-12 h-12 rounded-full bg-white text-black flex items-center justify-center text-xl font-bold"
-    >
-      ↑
-    </button>
-
+  type="button"
+  onMouseDown={(e) => e.preventDefault()}
+  onClick={sendMessage}
+  className="w-12 h-12 rounded-full bg-white text-black flex items-center justify-center text-xl font-bold"
+>
+  ↑
+</button>
   </div>
 
 </div> 
