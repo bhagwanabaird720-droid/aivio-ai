@@ -287,37 +287,56 @@ useEffect(() => {
   )}
 </div>
 
-       {/* Input */}
-<div className="fixed bottom-0 left-0 right-0 z-[99999] bg-black p-2">
-  <div className="flex gap-2">
+      {/* Input */}
+<div className="fixed bottom-0 left-0 right-0 z-[99999] bg-black px-3 pb-3">
 
-    <textarea
-      ref={textareaRef}
-      placeholder="Message AIVIO AI..."
-      value={message}
-      onChange={(e) => setMessage(e.target.value)}
-      rows={1}
-      className="flex-1 bg-[#2f2f2f] rounded-full px-4 py-3 text-white outline-none"
-      onKeyDown={(e) => {
-        if (e.key === "Enter" && !e.shiftKey) {
-          e.preventDefault()
-          sendMessage()
-        }
-      }}
-    />
+  <div className="flex items-center gap-2">
 
+    {/* Plus Button */}
     <button
-      type="button"
-      onMouseDown={(e) => e.preventDefault()}
+      className="w-12 h-12 rounded-full bg-[#2f2f2f] text-white text-2xl flex items-center justify-center"
+    >
+      +
+    </button>
+
+    {/* Input Container */}
+    <div className="flex-1 flex items-center bg-[#2f2f2f] rounded-full px-4">
+
+      <textarea
+        ref={textareaRef}
+        placeholder="Message AIVIO..."
+        value={message}
+        onChange={(e) => setMessage(e.target.value)}
+        rows={1}
+        className="flex-1 bg-transparent py-3 text-white outline-none resize-none"
+        onKeyDown={(e) => {
+          if (e.key === "Enter" && !e.shiftKey) {
+            e.preventDefault()
+            sendMessage()
+          }
+        }}
+      />
+
+      {/* Future Voice Button */}
+      <button
+        className="w-10 h-10 rounded-full bg-[#444] text-white flex items-center justify-center"
+      >
+        🎙
+      </button>
+
+    </div>
+
+    {/* Send Button */}
+    <button
       onClick={sendMessage}
-      className="w-10 h-10 rounded-full bg-white text-black flex items-center justify-center font-bold"
+      className="w-12 h-12 rounded-full bg-white text-black flex items-center justify-center text-xl font-bold"
     >
       ↑
     </button>
 
-    </div>
+  </div>
 
-  </div> {/* Input wrapper close */}
+</div> 
     </div> {/* Main Area close */}
     </div> {/* Root flex close */}
 
