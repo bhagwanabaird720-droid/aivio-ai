@@ -299,11 +299,6 @@ useEffect(() => {
     </div>
   </div>
 ))
-        <div className="whitespace-pre-wrap break-words text-sm">
-          {msg.text}
-        </div>
-      </div>
-    ))
   )}
 </div>
 
