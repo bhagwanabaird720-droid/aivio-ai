@@ -20,18 +20,7 @@ const [activeChatId, setActiveChatId] = useState(() => {
 const chatContainerRef = useRef(null)
 const textareaRef = useRef(null)
 
-const [viewportHeight, setViewportHeight] = useState(window.innerHeight)
 
-useEffect(() => {
-  const handleResize = () => {
-    setViewportHeight(window.innerHeight)
-  }
-
-  window.addEventListener("resize", handleResize)
-
-  return () =>
-    window.removeEventListener("resize", handleResize)
-}, [])
 
 useEffect(() => {
   setTimeout(() => {
@@ -219,12 +208,7 @@ useEffect(() => {
 
         {/* Main Area */}
   <div
-  className="flex-1 flex flex-col overflow-hidden"
-  style={{ height: viewportHeight }}
-  style={{
-  height: viewportHeight,
-  position: "relative"
-}}
+  className="flex-1 flex flex-col overflow-hidden relative h-full"
 >
   <div
  className="md:hidden fixed top-12 left-4 right-4 z-[99999] flex items-center justify-between" 
@@ -326,7 +310,7 @@ useEffect(() => {
 </div>
 
 {/* Input */}
-<div className="fixed bottom-0 left-0 right-0 z-[99999] bg-black pb-3">
+<div className="fixed bottom-0 md:left-[260px] left-0 right-0 z-[99999] bg-black pb-3">
 
   <div className="flex items-center gap-2 max-w-[680px] mx-auto px-3">
 
