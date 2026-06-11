@@ -144,7 +144,7 @@ useEffect(() => {
     <>
       {/* <Navbar /> */}
 
-      <div className="flex h-screen bg-black text-white">
+      <div className="flex h-[100dvh] bg-black text-white overflow-hidden">
 
         {/* Desktop Sidebar */}
         <div className="hidden md:flex flex-col w-[250px] border-r border-white/10 bg-[#0A0A0A] p-4">
@@ -216,9 +216,7 @@ useEffect(() => {
   
        {/* Mobile Chat List */}
 {showMenu && (
-  <div
-  className="md:hidden fixed top-0 left-0 right-0 z-[99999] bg-black px-4 pt-4 pb-2 flex items-center justify-between"
->
+  <div className="md:hidden fixed top-0 left-0 w-[280px] h-screen bg-[#0A0A0A] border-r border-white/10 z-[99999] p-4 overflow-y-auto">
 
     <div className="flex justify-between items-center mb-4">
       <h2 className="text-lg font-semibold">AIVIO</h2>
@@ -273,7 +271,7 @@ useEffect(() => {
     {/* Messages */}
   <div
   ref={chatContainerRef}
-    className="flex-1 overflow-y-auto px-4 pt-20 pb-40"
+    className="flex-1 overflow-y-auto px-4 pt-20 pb-32"
 >
   
   {messages.length === 0 ? (
@@ -282,14 +280,25 @@ useEffect(() => {
     </p>
   ) : (
     messages.map((msg, index) => (
-      <div
-        key={index}
-        className={`break-words whitespace-pre-wrap ${
-  msg.sender === "user"
-    ? "self-end text-white max-w-[75%]"
-    : "self-start text-white max-w-[75%]"
-}`}
-      >
+  <div
+    key={index}
+    className={`w-full flex mb-3 ${
+      msg.sender === "user"
+        ? "justify-end"
+        : "justify-start"
+    }`}
+  >
+    <div
+      className={`max-w-[80%] px-4 py-2 rounded-2xl text-sm break-words ${
+        msg.sender === "user"
+          ? "bg-blue-600 text-white"
+          : "bg-zinc-800 text-white"
+      }`}
+    >
+      {msg.text}
+    </div>
+  </div>
+))
         <div className="whitespace-pre-wrap break-words text-sm">
           {msg.text}
         </div>
