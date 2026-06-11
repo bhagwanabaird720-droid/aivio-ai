@@ -186,15 +186,9 @@ useEffect(() => {
         </div>
 
         {/* Main Area */}
-  <div className="flex-1 flex flex-col h-[100dvh] min-h-0">
+  <div className="flex-1 flex flex-col h-screen overflow-hidden">
   <div
-  className="md:hidden fixed top-4 left-4 right-4 z-[99999] flex items-center justify-between"
-  style={{
-    position: "fixed",
-    top: "16px",
-    left: "16px",
-    right: "16px",
-  }}
+  className="md:hidden fixed top-4 left-4 right-4 z-[99999] flex items-center justify-between pointer-events-auto"
 >
   <button
     onClick={() => setShowMenu(!showMenu)}
@@ -268,7 +262,7 @@ useEffect(() => {
     {/* Messages */}
   <div
   ref={chatContainerRef}
-  className="flex-1 min-h-0 overflow-y-auto flex flex-col gap-1 px-4 pt-20 pb-24"
+  className="flex-1 min-h-0 overflow-y-auto flex flex-col gap-0.5 px-4 pt-16 pb-24"
 >
   
   {messages.length === 0 ? (
@@ -294,7 +288,7 @@ useEffect(() => {
 </div>
 
        {/* Input */}
-<div className="fixed bottom-0 left-0 right-0 z-50 bg-black p-2">
+<div className="fixed bottom-0 left-0 right-0 z-[99999] bg-black p-2">
   <div className="flex gap-2">
 
     <textarea
