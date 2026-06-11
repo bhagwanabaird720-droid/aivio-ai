@@ -20,6 +20,18 @@ const [activeChatId, setActiveChatId] = useState(() => {
 const chatContainerRef = useRef(null)
 const textareaRef = useRef(null)
 
+const [viewportHeight, setViewportHeight] = useState(window.innerHeight)
+
+useEffect(() => {
+  const handleResize = () => {
+    setViewportHeight(window.innerHeight)
+  }
+
+  window.addEventListener("resize", handleResize)
+
+  return () =>
+    window.removeEventListener("resize", handleResize)
+}, [])
 
 useEffect(() => {
   setTimeout(() => {
@@ -180,7 +192,10 @@ useEffect(() => {
         </div>
 
         {/* Main Area */}
-  <div className="flex-1 flex flex-col overflow-hidden">
+  <div
+  className="flex-1 flex flex-col overflow-hidden"
+  style={{ height: viewportHeight }}
+>
   <div
   className="md:hidden fixed top-4 left-4 right-4 z-[99999] flex items-center justify-between pointer-events-auto"
 >
@@ -201,7 +216,9 @@ useEffect(() => {
   
        {/* Mobile Chat List */}
 {showMenu && (
-  <div className="md:hidden fixed top-0 left-0 w-[280px] h-screen bg-[#0A0A0A] border-r border-white/10 z-[999] p-4 overflow-y-auto">
+  <div
+  className="md:hidden fixed top-0 left-0 right-0 z-[99999] bg-black px-4 pt-4 pb-2 flex items-center justify-between"
+>
 
     <div className="flex justify-between items-center mb-4">
       <h2 className="text-lg font-semibold">AIVIO</h2>
@@ -256,7 +273,7 @@ useEffect(() => {
     {/* Messages */}
   <div
   ref={chatContainerRef}
-    className="flex-1 min-h-0 overflow-y-auto flex flex-col gap-0.5 px-4 pt-16 pb-40"
+    className="flex-1 overflow-y-auto px-4 pt-20 pb-40"
 >
   
   {messages.length === 0 ? (
