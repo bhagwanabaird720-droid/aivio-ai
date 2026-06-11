@@ -147,49 +147,75 @@ useEffect(() => {
       <div className="flex h-[100dvh] bg-black text-white overflow-hidden">
 
         {/* Desktop Sidebar */}
-        <div className="hidden md:flex flex-col w-[250px] border-r border-white/10 bg-[#0A0A0A] p-4">
+<div className="hidden md:flex flex-col w-[260px] bg-[#0A0A0A] border-r border-white/10">
 
-        <button
-  onClick={handleNewChat}
-  className="w-full mb-3 py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-purple-600"
->
-  + New Chat
-</button>
+  {/* Top */}
+  <div className="p-3">
 
-<input
-  type="text"
-  placeholder="Search Chats"
-  className="w-full mb-3 p-3 rounded-xl bg-[#111111] border border-white/10 text-white outline-none"
-/>
-     <div className="flex-1 mt-6 space-y-2 overflow-y-auto">
-            {chats.map((chat) => (
-              <div
-                key={chat.id}
-                onClick={() => openChat(chat)}
-                className="p-3 rounded-xl bg-[#111111] border border-white/10 text-sm truncate cursor-pointer hover:bg-[#1A1A1A]"
-              >
-                {chat.title}
-              </div>
-            ))}
-          </div>
+    <div className="text-white font-semibold text-lg mb-4">
+      AIVIO
+    </div>
 
-     <div className="border-t border-white/10 pt-4 mt-4 space-y-2">
+    <button
+      onClick={handleNewChat}
+      className="w-full py-3 rounded-xl bg-[#1F1F1F] hover:bg-[#2A2A2A] transition mb-3"
+    >
+      + New Chat
+    </button>
 
-  <div className="p-3 rounded-xl bg-[#111111] border border-white/10 cursor-pointer">
-    Projects
+    <input
+      type="text"
+      placeholder="Search Chats"
+      className="w-full p-3 rounded-xl bg-[#111111] border border-white/10 text-white outline-none"
+    />
   </div>
 
-  <div className="p-3 rounded-xl bg-[#111111] border border-white/10 cursor-pointer">
-    Settings
+  {/* Chats */}
+  <div className="flex-1 overflow-y-auto px-3 space-y-2">
+
+    {chats.map((chat) => (
+      <div
+        key={chat.id}
+        onClick={() => openChat(chat)}
+        className={`
+          p-3 rounded-xl text-sm cursor-pointer truncate
+          ${
+            activeChatId === chat.id
+              ? "bg-[#2A2A2A]"
+              : "hover:bg-[#1A1A1A]"
+          }
+        `}
+      >
+        {chat.title}
+      </div>
+    ))}
+
   </div>
 
-  <div className="p-3 rounded-xl bg-[#111111] border border-white/10 cursor-pointer">
-    Profile
+  {/* Bottom User */}
+  <div className="border-t border-white/10 p-3">
+
+    <div className="flex items-center gap-3">
+
+      <div className="w-10 h-10 rounded-full bg-zinc-700 flex items-center justify-center">
+        O
+      </div>
+
+      <div>
+        <div className="text-sm text-white">
+          Op
+        </div>
+
+        <div className="text-xs text-gray-400">
+          Free Plan
+        </div>
+      </div>
+
+    </div>
+
   </div>
 
 </div>
-          
-        </div>
 
         {/* Main Area */}
   <div
