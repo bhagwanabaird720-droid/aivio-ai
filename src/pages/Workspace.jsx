@@ -319,11 +319,7 @@ useEffect(() => {
         {chat.title}
       </div>
     ))}
-
-    
-
   </div>
-</div>
 )}
 
 
