@@ -448,7 +448,7 @@ useEffect(() => {
     </div> {/* Main Area close */}
     </div> {/* Root flex close */}
 
-    </>
+    
   )
 }
 
