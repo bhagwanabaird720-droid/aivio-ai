@@ -1,11 +1,9 @@
 import { useState, useRef, useEffect } from "react"
 import Navbar from "../components/Navbar"
 
-const [collapsed, setCollapsed] = useState(false)
-
-const [searchChat, setSearchChat] = useState("")
-
 const Workspace = () => {
+const [collapsed, setCollapsed] = useState(false)
+const [searchChat, setSearchChat] = useState("")
 const [message, setMessage] = useState("")
 const [messages, setMessages] = useState([])
 
