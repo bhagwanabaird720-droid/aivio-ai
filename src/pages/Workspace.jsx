@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react"
-import Navbar from "../components/Navbar"
+// import Navbar from "../components/Navbar"
 
 const Workspace = () => {
 const [collapsed, setCollapsed] = useState(false)
@@ -322,7 +322,9 @@ useEffect(() => {
 </div>
 )}
 
-
+{/* ADD THIS */}
+<>
+</>
         
 {/* Messages */}
 
