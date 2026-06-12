@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react"
-import Navbar from "../components/Navbar"
+
 
 const [collapsed, setCollapsed] = useState(false)
 
