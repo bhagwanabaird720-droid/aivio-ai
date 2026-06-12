@@ -325,25 +325,7 @@ useEffect(() => {
   </div>
 )}  
 
-    <div className="mt-4 space-y-2">
 
-  <div className="p-3 rounded-xl bg-[#111111] border border-white/10">
-    ⚙️ Settings
-  </div>
-
-  <div className="p-3 rounded-xl bg-[#111111] border border-white/10">
-    ❓ Help
-  </div>
-
-  <div className="p-3 rounded-xl bg-gradient-to-r from-cyan-500 to-purple-600">
-    ⭐ Upgrade Plan
-  </div>
-
-  <div className="p-3 rounded-xl bg-[#111111] border border-white/10">
-    👤 Profile
-  </div>
-
-</div>
         
 {/* Messages */}
 
