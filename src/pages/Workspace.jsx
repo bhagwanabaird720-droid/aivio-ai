@@ -22,7 +22,11 @@ const [activeChatId, setActiveChatId] = useState(() => {
 const chatContainerRef = useRef(null)
 const textareaRef = useRef(null)
 
-
+const filteredChats = chats.filter((chat) =>
+  chat.title
+    .toLowerCase()
+    .includes(searchChat.toLowerCase())
+)
 
 useEffect(() => {
   setTimeout(() => {
@@ -187,11 +191,6 @@ useEffect(() => {
 
   {/* Chats */}
   <div className="flex-1 overflow-y-auto px-3 space-y-2">
-  const filteredChats = chats.filter((chat) =>
-  chat.title
-    .toLowerCase()
-    .includes(searchChat.toLowerCase())
-)
     {filteredChats.map((chat) => (
       <div
         key={chat.id}
