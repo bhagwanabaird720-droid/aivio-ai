@@ -322,9 +322,6 @@ useEffect(() => {
 </div>
 )}
 
-{/* ADD THIS */}
-<>
-</>
         
 {/* Messages */}
 
