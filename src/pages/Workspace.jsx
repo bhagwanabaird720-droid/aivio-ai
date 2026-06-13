@@ -319,9 +319,10 @@ useEffect(() => {
         {chat.title}
       </div>
     ))}
-</div>   {/* Fragment close */}
+</div>   
 )}
-</>
+
+  
         
 {/* Messages */}
 
