@@ -136,7 +136,7 @@ useEffect(() => {
   }
 
   return (
-    <>
+    
       {/* <Navbar /> */}
 
       <div className="flex h-[100dvh] bg-black text-white overflow-hidden">
