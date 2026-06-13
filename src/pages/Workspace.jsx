@@ -136,7 +136,7 @@ useEffect(() => {
   }
 
   return (
-    
+    <>
       {/* <Navbar /> */}
 
       <div className="flex h-[100dvh] bg-black text-white overflow-hidden">
@@ -319,9 +319,9 @@ useEffect(() => {
         {chat.title}
       </div>
     ))}
-</div>
+</div>   {/* Fragment close */}
 )}
-
+</>
         
 {/* Messages */}
 
@@ -445,7 +445,7 @@ useEffect(() => {
     </div> {/* Main Area close */}
     </div> {/* Root flex close */}
 
-    
+      </>
   )
 }
 
